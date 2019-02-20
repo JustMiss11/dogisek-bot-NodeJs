@@ -20,7 +20,7 @@ bot.on("ready", () => {
         bot.user.setActivity(status, {type: "LISTENING"});
         bot.user.setStatus("idle"); //online, idle, dnd
     }, 5000)
-})
+});
 
 
 bot.on("message", msg => {
@@ -43,6 +43,6 @@ bot.on("message", msg => {
               msg.channel.send(embed)
               return;
        }
-};
+});
        
 bot.login(process.env.TOKEN)
