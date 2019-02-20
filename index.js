@@ -45,7 +45,7 @@ bot.on("message", message => {
               return;
        }
        if(cmd === "invite".toLowerCase()) {
-              if(!message.author.id === 342364288310312970) return message.channel.send("Nejsi developer!");
+              if(!message.author.id === "342364288310312970") return message.channel.send("Nejsi developer!");
      //  if(cmd === "invite".toLowerCase()) {
               message.channel.send("[INVITE] (https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
               return;
