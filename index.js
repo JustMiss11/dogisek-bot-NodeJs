@@ -33,7 +33,7 @@ bot.on("message", message => {
        let author = message.author.username;
        let user = message.mentions.members.first();
        
-       if(cmd === 'PING'.toLowerCase ()) {
+       if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
               .setAuthor("Dogisek Bot!", message.author.avatarURL)
               .setColor("BLUE")
@@ -44,7 +44,7 @@ bot.on("message", message => {
               message.channel.send(embed)
               return;
        }
-       if(cmd === "invite".toLowerCase()) {
+       if(cmd === `${prefix}invite`.toLowerCase()) {
               if(!message.author.id === "342364288310312970") return message.channel.send("Nejsi developer!");
      //  if(cmd === "invite".toLowerCase()) {
               message.channel.send("[INVITE] (https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
