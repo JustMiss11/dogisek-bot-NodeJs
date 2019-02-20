@@ -30,7 +30,7 @@ bot.on("message", message => {
        let messageArray = message.content.split(" ");
        let cmd = messageArray[0];
        let content = message.content;
-       let author = message.author.username;
+       let author1 = message.author.username;
        let user = message.mentions.members.first();
        
        if(cmd === `${prefix}PING`.toLowerCase ()) {
@@ -51,7 +51,7 @@ bot.on("message", message => {
               .setAuthor("Invitni me")
               .setThumbnail(message.author.avatarURL)
               .setFooter(author + " mě chtěl invitnout!")
-              .setDescription("[INVITE] (https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
+              .setDescription("(INVITE) [https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot]")
               .setColor("GREEN");
               message.channel.send(embed)
               return;
