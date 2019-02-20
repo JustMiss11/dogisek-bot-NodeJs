@@ -51,7 +51,7 @@ bot.on("message", message => {
               .setAuthor("Invitni me")
               .setThumbnail(message.author.avatarURL)
               .setFooter(author1 + " mě chtěl invitnout!")
-              .setDescription("(INVITE) [https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot]")
+              .setDescription("[INVITE](https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
               .setColor("GREEN");
               message.channel.send(embed)
               return;
