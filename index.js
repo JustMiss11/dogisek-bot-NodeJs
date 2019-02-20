@@ -33,7 +33,7 @@ bot.on("message", msg => {
        let author = msg.author.username;
        let user = msg.mentions.members.first();
        
-       if(cmd.content.startsWith('Dogisek Bot')) {
+       if(cmd.content.startsWith('DOGISEK-BOT').toLoverCase()) {
               var embed = new Discord.RichEmbed()
               .setAuthor("Dogisek Bot!", msg.author.avatarURL)
               .setColor("BLUE")
