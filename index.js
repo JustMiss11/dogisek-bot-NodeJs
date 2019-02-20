@@ -23,24 +23,24 @@ bot.on("ready", () => {
 });
 
 
-bot.on("message", msg => {
-       if(msg.author.bot) return;
-       if(!msg.content.startsWith(prefix)) return;
-       if(msg.channel.dm) return msg.author.send("Commands wont work in here.");
-       let messageArray = msg.content.split(" ");
+bot.on("message", message => {
+       if(message.author.bot) return;
+       if(!message.content.startsWith(prefix)) return;
+       if(message.channel.dm) return message.author.send("Commands wont work in here.");
+       let messageArray = message.content.split(" ");
        let cmd = messageArray[0];
-       let content = msg.content;
-       let author = msg.author.username;
-       let user = msg.mentions.members.first();
+       let content = message.content;
+       let author = message.author.username;
+       let user = message.mentions.members.first();
        
-       if(cmd.content.startsWith('DOGISEK-BOT').toLoverCase()) {
+       if(message.content.startsWith('DOGISEK-BOT').toLoverCase()) {
               var embed = new Discord.RichEmbed()
-              .setAuthor("Dogisek Bot!", msg.author.avatarURL)
+              .setAuthor("Dogisek Bot!", message.author.avatarURL)
               .setColor("BLUE")
               .addField("Prefix:", ">")
               .setTimestamp()
               .setFooter("JustNela je best xd");
-              msg.channel.send(embed)
+              message.channel.send(embed)
               return;
        }
 });
