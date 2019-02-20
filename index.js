@@ -45,9 +45,15 @@ bot.on("message", message => {
               return;
        }
        if(cmd === `${prefix}invite`.toLowerCase()) {
-              if(!message.author.id === "342364288310312970") return message.channel.send("Nejsi developer!");
+              if(!message.author.id === "342364288310312971") return message.channel.send("Nejsi developer!");
      //  if(cmd === "invite".toLowerCase()) {
-              message.channel.send("[INVITE] (https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
+              var embed = new Discord.RichEmbed()
+              .setAuthor("Invitni me")
+              .setThumbnail(message.author.avatarURL)
+              .setFooter(author + " mě chtěl invitnout!")
+              .setDescription("[INVITE] (https://discordapp.com/api/oauth2/authorize?client_id=527487615025545227&permissions=8&scope=bot)")
+              .setColor("GREEN");
+              message.channel.send(embed)
               return;
        }
        
