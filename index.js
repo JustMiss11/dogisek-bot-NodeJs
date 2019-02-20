@@ -23,7 +23,7 @@ bot.on("ready", async () => {
 });
 
 
-bot.on("message" async () => {
+bot.on("message"), async () => {
        if(message.author.bot) return;
        if(!message.content.startsWith(prefix)) return;
        if(message.channel.dm) return message.author.send("Commands wont work in here.");
@@ -43,6 +43,6 @@ bot.on("message" async () => {
               message.channel.send(embed)
               return;
        }
-}
+};
        
 bot.login(process.env.TOKEN)
