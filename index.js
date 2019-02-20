@@ -43,6 +43,6 @@ bot.on("message", msg => {
               msg.channel.send(embed)
               return;
        }
-}); //reload ;)
+});
        
 bot.login(process.env.TOKEN)
