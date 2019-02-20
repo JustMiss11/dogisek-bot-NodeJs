@@ -3,7 +3,7 @@ const prefix = ">";
 
 const bot = new Discord.Client();
 
-bot.on("ready", async () => {
+bot.on("ready", () => {
        console.log(`${bot.user.username} is online`)
     // bot.user.setActivity("Hello", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
 
@@ -20,27 +20,27 @@ bot.on("ready", async () => {
         bot.user.setActivity(status, {type: "LISTENING"});
         bot.user.setStatus("idle"); //online, idle, dnd
     }, 5000)
-});
+})
 
 
-bot.on("message"), async () => {
-       if(message.author.bot) return;
-       if(!message.content.startsWith(prefix)) return;
-       if(message.channel.dm) return message.author.send("Commands wont work in here.");
-       let messageArray = message.content.split(" ");
-       let msg = messageArray[0];
-       let content = message.content;
-       let author = message.author.username;
-       let user = message.mentions.members.first();
+bot.on("message", msg => {
+       if(msg.author.bot) return;
+       if(!msg.content.startsWith(prefix)) return;
+       if(msg.channel.dm) return msg.author.send("Commands wont work in here.");
+       let messageArray = msg.content.split(" ");
+       let cmd = messageArray[0];
+       let content = msg.content;
+       let author = msg.author.username;
+       let user = msg.mentions.members.first();
        
-       if(msg.content.startsWith('Dogisek Bot')) {
+       if(cmd.content.startsWith('Dogisek Bot')) {
               var embed = new Discord.RichEmbed()
-              .setAuthor("Dogisek Bot!", message.author.avatarURL)
+              .setAuthor("Dogisek Bot!", msg.author.avatarURL)
               .setColor("BLUE")
               .addField("Prefix:", ">")
               .setTimestamp()
               .setFooter("JustNela je best xd");
-              message.channel.send(embed)
+              msg.channel.send(embed)
               return;
        }
 };
