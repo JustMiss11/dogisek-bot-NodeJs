@@ -93,6 +93,16 @@ bot.on("message", message => {
                      //reload ::::::)))))))
                      
               }})
+              if(!reason) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "color": 0x700606,
+                     "description": "Toto je normální chyba. \nSyntax error: <důvod> \nUsage: >report <user> <důvod>",
+                    
+                     //reload ::::::)))))))
+                     
+              }})
               var embed = new Discord.RichEmbed()
               .setAuthor("Noví report", message.author.avatarURL)
               .setColor("RED")
