@@ -73,12 +73,32 @@ bot.on("message", message => {
               
                      let reaction1 = "❌";
                      let reaction2 = "✅";
-                     msg.react(reaction1);
-                     msg.react(reaction2);
+                     await msg.react(reaction1);
+                     await msg.react(reaction2);
                      
-                     if(reaction1 == 2) return message.channel.send("Pokusíme se to opravit :/");
+                     if(!reaction1) return message.channel.send("Pokusíme se to opravit :/");
                      });
               return;
+       }
+       if(cmd === `${prefix}report`){
+              if(!user) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "color": 11277,
+                     "description": "Toto je normální chyba. \nSyntax error: <user> \nUsage: >report <user> <důvod>",
+                    
+                     
+                     
+              }})
+              var embed = new Discord.RichEmbed()
+              .setAuthor("Noví report", message.author.avatarURL)
+              .setColor("RED")
+              .addField("Reportován:", user)
+              .addField("Reportován od:", author1)
+              .addField("Dúvod:", content);
+              let channel = message.guild.channels.find('name', "reports");
+              channel.send(embed);
        }
        
 });
