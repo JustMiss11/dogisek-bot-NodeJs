@@ -65,7 +65,7 @@ bot.on("message", message => {
              
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
-              .setTimeStamp()
+              .setTimestamp()
               .addField("Pomohlo ti to?", ":white_check_mark ANO \n:x: NE")
               .setFooter("Dogisek Bot©");
               let msg = message.channel.send(embed);
