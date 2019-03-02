@@ -108,21 +108,21 @@ bot.on("message", message => {
               .setColor("RED")
               .addField("Reportován:", user)
               .addField("Reportován od:", author1)
-              .addField("Dúvod:", reason);
+              .addField("Důvod:", reason);
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
        if(cmd === `${prefix}warn`){
           //  const Discord = require("discord.js");
 //const fs = require("fs");
-            const ms = require("ms");
+            
 //let warns = JSON.parse(fs.readFileSync("./data/warns.json", "utf8"));
          //   const db = require('quick.db');
 
 
 
   //!warn @daeshan <reason>
-           if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
+           if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
   //let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
            var wUser = message.mentions.users.first() || bot.users.get(args[0]);
            if(!wUser) return message.reply("Couldn't find them yo");
