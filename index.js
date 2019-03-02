@@ -87,7 +87,7 @@ bot.on("message", message => {
                      "author":{
                             "name": "Syntax error"
                      },
-                     "color": 11277,
+                     "color": 0x700606,
                      "description": "Toto je normální chyba. \nSyntax error: <user> \nUsage: >report <user> <důvod>",
                     
                      
@@ -98,7 +98,7 @@ bot.on("message", message => {
               .setColor("RED")
               .addField("Reportován:", user)
               .addField("Reportován od:", author1)
-              .addField("Dúvod:", content.slice(22));
+              .addField("Dúvod:", reason);
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
