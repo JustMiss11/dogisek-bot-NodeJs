@@ -62,7 +62,7 @@ bot.on("message", message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(`${message.guild.name}`, message.guild.iconURL)
               .setColor("GREEN")
-              .addBlankfield(true)
+             
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
               .setTimeStamp()
