@@ -152,7 +152,7 @@ bot.on("message", message => {
 
                warnchannel.send(warnEmbed);
 
-           if(warns == 2){
+           if(warns == 1){
               let muterole = message.guild.roles.find(`name`, "muted");
               if(!muterole) return message.reply("You should create that role dude.");
 
@@ -165,7 +165,7 @@ bot.on("message", message => {
              message.reply(`<@${wUser.id}> has been unmuted.`)
           }, ms(mutetime))
           }
-          if(warns == 3){
+          if(warns == 2){
           let muterole = message.guild.roles.find(`name`, "muted");
           if(!muterole) return message.reply("| Create a muted role!");
     
@@ -178,12 +178,12 @@ bot.on("message", message => {
              message.reply(`<@${wUser.id}> has been unmuted.`)
          }, ms(mutetime))
          }
-         if(warns == 6){
+         if(warns == 3){
            message.guild.member(wUser).ban(reason);
            message.reply(`<@${wUser.id}> has been banned.`)
          }
 
-        }
+       
        })
 });
        
