@@ -73,7 +73,7 @@ bot.on("message", message => {
               
                      msg.react("❌");
                      msg.react("✅");
-                     };
+                     });
               return;
        }
        
