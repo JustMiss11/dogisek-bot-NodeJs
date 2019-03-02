@@ -112,7 +112,7 @@ bot.on("message", message => {
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
-       if(cmd === `${prefix}warn){
+       if(cmd === `${prefix}warn`){
           //  const Discord = require("discord.js");
 //const fs = require("fs");
             const ms = require("ms");
