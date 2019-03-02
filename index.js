@@ -2,7 +2,7 @@
 
 const Discord = require("discord.js");
 const prefix = ">";
-
+const db = require("quick.db");
 const bot = new Discord.Client();
 //reload
 bot.on("ready", () => {
@@ -112,7 +112,79 @@ bot.on("message", message => {
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
-       
+       if(cmd === `${prefix}warn){
+          //  const Discord = require("discord.js");
+//const fs = require("fs");
+            const ms = require("ms");
+//let warns = JSON.parse(fs.readFileSync("./data/warns.json", "utf8"));
+         //   const db = require('quick.db');
+
+
+
+  //!warn @daeshan <reason>
+           if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
+  //let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+           var wUser = message.mentions.users.first() || bot.users.get(args[0]);
+           if(!wUser) return message.reply("Couldn't find them yo");
+ // if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
+           let reason = args.join(" ").slice(22);
+  if(!reason) return message.reply("Specify a reason.............. ||noob..||")
+           let warnchannel = message.guild.channels.find(`name`, "logs");
+           if(!warnchannel) return message.reply("Couldn't find channel");
+             const warns = db.fetch(`warns_${wUser.id}`);
+             const reasonDB = db.fetch(`reason_${wUser.id}`);
+
+  //if(!warns) warns = "0";
+//pls Funguj 
+  //warns[wUser.id].warns++;
+
+              db.add(`warns_${wUser.id}`, 1)
+              db.push(`reason_${wUser.id}`, reason)
+
+              let warnEmbed = new Discord.RichEmbed()
+              .setDescription("Warns")
+              .setAuthor(message.author.username)
+              .setColor("#fc6400")
+              .addField("Warned User", `<@${wUser.id}>`)
+              .addField("Warned In", message.channel)
+              .addField("Number of Warnings", warns+1)
+              .addField("Reason", reason);
+
+               warnchannel.send(warnEmbed);
+
+           if(warns == 2){
+              let muterole = message.guild.roles.find(`name`, "muted");
+              if(!muterole) return message.reply("You should create that role dude.");
+
+              let mutetime = "20m";
+              await(wUser.addRole(muterole.id));
+              message.channel.send(`<@${wUser.id}> has been temporarily muted`);
+
+          setTimeout(function(){
+             wUser.removeRole(muterole.id)
+             message.reply(`<@${wUser.id}> has been unmuted.`)
+          }, ms(mutetime))
+          }
+          if(warns == 3){
+          let muterole = message.guild.roles.find(`name`, "muted");
+          if(!muterole) return message.reply("| Create a muted role!");
+    
+          let mutetime = "2h";
+          await(wUser.addRole(muterole.id));
+          message.channel.send(`<@${wUser.id}> has been muted for 2 hours.`);
+    
+          setTimeout(function(){
+             wUser.removeRole(muterole.id)
+             message.reply(`<@${wUser.id}> has been unmuted.`)
+         }, ms(mutetime))
+         }
+         if(warns == 6){
+           message.guild.member(wUser).ban(reason);
+           message.reply(`<@${wUser.id}> has been banned.`)
+         }
+
+        }
+       }
 });
        
 bot.login(process.env.TOKEN)
