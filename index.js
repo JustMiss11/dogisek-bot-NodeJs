@@ -90,7 +90,7 @@ bot.on("message", message => {
                      "color": 0x700606,
                      "description": "Toto je normální chyba. \nSyntax error: <user> \nUsage: >report <user> <důvod>",
                     
-                     
+                     //reload ::::::)))))))
                      
               }})
               var embed = new Discord.RichEmbed()
