@@ -76,7 +76,7 @@ bot.on("message", message => {
                      msg.react(reaction1);
                      msg.react(reaction2);
                      
-                     if(reaction1) return message.channel.send("Pokusíme se to opravit :/");
+                     if(reaction1 == true) return message.channel.send("Pokusíme se to opravit :/");
                      });
               return;
        }
