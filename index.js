@@ -1,5 +1,5 @@
 
-
+const ms = require("ms");
 const Discord = require("discord.js");
 const prefix = ">";
 const db = require("quick.db");
@@ -191,6 +191,7 @@ bot.on("message", message => {
              message.reply(`<@${wUser.id}> has been unmuted.`)
          }, ms(mutetime))
          }
+     }
 });
        
 bot.login(process.env.TOKEN)
