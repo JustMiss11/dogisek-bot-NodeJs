@@ -70,8 +70,8 @@ bot.on("message", message => {
               .setFooter("Dogisek Bot©");
               let msg = message.channel.send(embed);
               
-              msg.react("❌");
-              msg.react("✅");
+              msg.addReaction("❌");
+              msg.addReaction("✅");
               return;
        }
        
