@@ -68,7 +68,7 @@ bot.on("message", message => {
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
               .setTimestamp()
-              .addField("Pomohlo ti to?", ":white_check_mark ANO \n:x: NE")
+              .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot©");
               message.channel.send(embed).then(async msg =>{
                      
@@ -153,7 +153,7 @@ bot.on("message", message => {
                warnchannel.send(warnEmbed);
 
            if(warns == 1){
-              let muterole = message.guild.roles.find(`name`, "muted");
+              let muterole = message.guild.roles.find(`name`, "1.STRIKE");
               if(!muterole) return message.reply("You should create that role dude.");
 
               let mutetime = "20m";
@@ -166,7 +166,7 @@ bot.on("message", message => {
           }, ms(mutetime))
           }
           if(warns == 2){
-          let muterole = message.guild.roles.find(`name`, "muted");
+          let muterole = message.guild.roles.find(`name`, "2.STRIKE");
           if(!muterole) return message.reply("| Create a muted role!");
     
           let mutetime = "2h";
@@ -179,12 +179,18 @@ bot.on("message", message => {
          }, ms(mutetime))
          }
          if(warns == 3){
-           message.guild.member(wUser).ban(reason);
-           message.reply(`<@${wUser.id}> has been banned.`)
+           let muterole = message.guild.roles.find(`name`, "3.STRIKE");
+          if(!muterole) return message.reply("| Create a muted role!");
+    
+          let mutetime = "2h";
+          await(wUser.addRole(muterole.id));
+          message.channel.send(`<@${wUser.id}> has been muted for 2 hours.`);
+    
+          setTimeout(function(){
+             wUser.removeRole(muterole.id)
+             message.reply(`<@${wUser.id}> has been unmuted.`)
+         }, ms(mutetime))
          }
-
-       
-       }
 });
        
 bot.login(process.env.TOKEN)
