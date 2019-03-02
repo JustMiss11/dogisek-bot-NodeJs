@@ -153,7 +153,7 @@ bot.on("message", message => {
                warnchannel.send(warnEmbed);
 
            if(warns == 1){
-              let muterole = message.guild.roles.find(`name`, "1.STRIKE");
+              let muterole = message.guild.roles.find(`name`, "1. STRIKE");
               if(!muterole) return message.reply("You should create that role dude.");
 
               let mutetime = "20m";
