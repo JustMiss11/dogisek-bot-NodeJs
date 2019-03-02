@@ -129,7 +129,7 @@ bot.on("message", message => {
  // if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
            let reason = args.join(" ").slice(22);
   if(!reason) return message.reply("Specify a reason.............. ||noob..||")
-           let warnchannel = message.guild.channels.find(`name`, "logs");
+           let warnchannel = message.guild.channels.find('name', "logs");
            if(!warnchannel) return message.reply("Couldn't find channel");
              const warns = db.fetch(`warns_${wUser.id}`);
              const reasonDB = db.fetch(`reason_${wUser.id}`);
