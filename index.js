@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const prefix = ">";
 
 const bot = new Discord.Client();
-
+//reload
 bot.on("ready", () => {
        console.log(`${bot.user.username} is online`)
     // bot.user.setActivity("Hello", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
