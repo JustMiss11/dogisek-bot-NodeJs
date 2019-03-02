@@ -56,6 +56,22 @@ bot.on("message", message => {
               message.channel.send(embed)
               return;
        }
+       if(cmd === `${prefix}help`){
+              var embed = new Discord.RichEmbed()
+              .setAuthor(`${message.guild.name}`, message.guild.iconURL)
+              .setColor("GREEN")
+              .addBlankfield(true)
+              .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
+              .addField("invite", "Dá Invite na bota")
+              .setTimeStamp()
+              .addField("Pomohlo ti to?", ":white_check_mark ANO \n:x: NE")
+              .setFooter("Dogisek Bot©");
+              let msg = message.channel.send(embed);
+              
+              msg.react("❌");
+              msg.react("✅");
+              return;
+       }
        
 });
        
