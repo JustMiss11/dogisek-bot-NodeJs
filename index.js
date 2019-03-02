@@ -96,7 +96,7 @@ bot.on("message", message => {
               .setColor("RED")
               .addField("Reportován:", user)
               .addField("Reportován od:", author1)
-              .addField("Dúvod:", content);
+              .addField("Dúvod:", content.slice(22));
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
