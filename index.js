@@ -68,10 +68,12 @@ bot.on("message", message => {
               .setTimestamp()
               .addField("Pomohlo ti to?", ":white_check_mark ANO \n:x: NE")
               .setFooter("Dogisek Bot©");
-              let msg = message.channel.send(embed);
+              message.channel.send(embed).then(async msg =>{
+                     
               
-              msg.addReaction("❌");
-              msg.addReaction("✅");
+                     msg.react("❌");
+                     msg.react("✅");
+                     };
               return;
        }
        
