@@ -71,8 +71,12 @@ bot.on("message", message => {
               message.channel.send(embed).then(async msg =>{
                      
               
-                     msg.react("❌");
-                     msg.react("✅");
+                     let reaction1 = "❌";
+                     let reaction2 = "✅";
+                     msg.react(reaction1);
+                     msg.react(reaction2);
+                     
+                     if(reaction1) return message.channel.send("Pokusíme se to opravit :/");
                      });
               return;
        }
