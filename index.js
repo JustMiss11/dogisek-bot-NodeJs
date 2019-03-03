@@ -35,7 +35,7 @@ bot.on("message", message => {
        let content = message.content;
        let author1 = message.author.username;
        let user = message.mentions.members.first();
-       let reason = args.join(" ").slice(1);
+       let reason = args.join(" ").slice(0);
        
        if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
