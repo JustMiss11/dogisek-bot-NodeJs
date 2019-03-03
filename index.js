@@ -278,10 +278,10 @@ bot.on("message", async message => {
               .setColor("RED")
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
-              await message.guild.member(user).ban(reason1);
+              await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
               await logs.send(embed)
               
-       }.catch(err => console.error(err));
+       }//.catch(err => console.error(err));
 });
        
 bot.login(process.env.TOKEN)
