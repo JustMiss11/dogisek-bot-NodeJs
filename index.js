@@ -242,6 +242,32 @@ bot.on("message", message => {
        };
        //ban
        if(cmd === `${prefix}ban`){
+              if(!user) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "description": "Toto je běžná chyba.. \nSyntax error <uživatel> \nPoužití: >ban <uživatel> <dúvod>",
+                     "color": 0x700606,
+                     
+              }});
+              if(!reason) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "description": "Toto je běžná chyba.. \nSyntax error <dúvod> \nPoužití: >ban <uživatel> <dúvod>",
+                     "color": 0x700606,
+                     
+              }});
+              if(user.hasPermissions("BAN_MEMBERS") return message.channel.send({embed:{
+                     "author":{
+                            "name": "Error"
+                     },
+                     "description": "Nemohu tohodle uživatele zabanovat. \nUživatel má pravomoc: BAN_MEMBERS.",
+                     "color": 0x700606,
+                     
+              }});
+              if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
+                                                                                           
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " zabanoval/a")
                          
