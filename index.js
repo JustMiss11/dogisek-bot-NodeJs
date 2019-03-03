@@ -281,7 +281,7 @@ bot.on("message", async message => {
               await message.guild.member(user).ban(reason1);
               await logs.send(embed)
               
-       }
+       }.catch(err => console.error(err));
 });
        
 bot.login(process.env.TOKEN)
