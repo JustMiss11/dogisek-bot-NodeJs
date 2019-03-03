@@ -218,6 +218,21 @@ bot.on("message", message => {
                            })//then(() => message.channel.stopTyping()); 
                }).catch(err => console.error(err));
      };
+     
+     if(cmd === `${prefix}log`){
+        if(message.author.id !== "342364288310312970") return message.reply('Nejsi Developer tohodle bota!');
+            
+        var embed = new Discord.RichEmbed()
+        .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
+        .setDescription(reason)
+        .setFooter(`Log od: ${author1}`)
+        .setTimeStamp()
+        .setColor('GREEN');
+        let logC = message.guild.channels.find('name', "galaxy-core-updates");
+        logC.send(embed)
+        return;
+       };
+       
 });
        
 bot.login(process.env.TOKEN)
