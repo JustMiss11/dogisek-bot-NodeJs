@@ -1,4 +1,4 @@
-
+const randomPuppy = require("random-puppy");
 const ms = require("ms");
 const Discord = require("discord.js");
 const prefix = ">";
@@ -192,6 +192,32 @@ bot.on("message", message => {
          }, ms(mutetime))
          }
      }
+     if(cmd === `${prefix}meme`){
+
+         let reddit = ["meme",
+                       "animemes", 
+                       "MemesOfAnime",
+                       "animememes",
+                       "AnimeFunny",
+                       "dankmemes", 
+                       "dankmeme"
+                      ]
+
+         let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
+
+ //message.channel.startTyping(); 
+
+         randomPuppy(subreddit).then(async url => {
+                            await message.channel.send({
+                                  files: [{ 
+                                         attachment: url, 
+                                         name: ["meme.png",
+                                                "memejs"
+                                               ]
+                                 }]           
+                           })//then(() => message.channel.stopTyping()); 
+               }).catch(err => console.error(err));
+     };
 });
        
 bot.login(process.env.TOKEN)
