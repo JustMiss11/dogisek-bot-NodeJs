@@ -72,7 +72,7 @@ bot.on("message", message => {
               .addField("log", "Pošle novej update.")
               .setTimestamp()
               .addField("🙂 Fun (1)", "`meme`")
-              .addField("🔨 Moderation (1)", "`warn`")
+              .addField("🔨 Moderation (2)", "`warn`, `ban`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -252,7 +252,7 @@ bot.on("message", message => {
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
               logs.send(embed)
-              await message.guild.member(user).ban(reason);
+              message.guild.member(user).ban(reason);
        }
 });
        
