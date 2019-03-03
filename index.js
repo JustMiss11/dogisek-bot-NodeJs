@@ -25,7 +25,7 @@ bot.on("ready", () => {
 });
 
 
-bot.on("message", message => {
+bot.on("message", async message => {
        if(message.author.bot) return;
        if(!message.content.startsWith(prefix)) return;
        if(message.channel.dm) return message.author.send("Commands wont work in here.");
@@ -279,7 +279,7 @@ bot.on("message", message => {
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
               logs.send(embed)
-              message.guild.member(user).ban(reason);
+              await user.ban(reason)
        }
 });
        
