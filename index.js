@@ -268,18 +268,19 @@ bot.on("message", async message => {
                      
               }});
             //  if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
-                                                                                           
+              let reason1 = args.join(" ").slice(22);
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " zabanoval/a")
                          
               .addField("Zabanován/a:", user)
               .addField("Zabanován/a od:", author1)
-              .addField("Dúvod:", args.join(" "))
+              .addField("Dúvod:", reason1)
               .setColor("RED")
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
-              logs.send(embed)
-              await user.ban(reason)
+              await message.guild.member(user).ban(reason1);
+              await logs.send(embed)
+              
        }
 });
        
