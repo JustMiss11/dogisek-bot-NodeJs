@@ -72,7 +72,7 @@ bot.on("message", async message => {
               .addField("log", "Pošle novej update.")
               .setTimestamp()
               .addField("🙂 Fun (1)", "`meme`")
-              .addField("🔨 Moderation (2)", "`warn`, `ban`")
+              .addField("🔨 Moderation (3)", "`warn`, `ban`, `kick`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -282,6 +282,49 @@ bot.on("message", async message => {
               await logs.send(embed)
               
        }//.catch(err => console.error(err));
+       //KICK
+       if(cmd === `${prefix}kick`){
+              if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
+              if(!user) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "description": "Toto je běžná chyba.. \nSyntax error <uživatel> \nPoužití: >kick <uživatel> <dúvod>",
+                     "color": 0x700606,
+                     
+              }});
+              let reason1 = args.join(" ").slice(22);
+              if(!reason1) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Syntax error"
+                     },
+                     "description": "Toto je běžná chyba.. \nSyntax error <dúvod> \nPoužití: >kick <uživatel> <dúvod>",
+                     "color": 0x700606,
+                     
+              }});
+              if(user.hasPermissions("KICK_MEMBERS")) return message.channel.send({embed:{
+                     "author":{
+                            "name": "Error"
+                     },
+                     "description": "Nemohu tohodle uživatele kicknout. \nUživatel má pravomoc: KICK_MEMBERS.",
+                     "color": 0x700606,
+                     
+              }});
+            //  if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
+              
+              var embed = new Discord.RichEmbed()
+              .setAuthor(author1 + " kickul/a")
+                         
+              .addField("Kicknut/a", user)
+              .addField("Kicknut/a od:", author1)
+              .addField("Dúvod:", reason1)
+              .setColor("RED")
+              .setTimestamp();
+              let logs = message.guild.channels.find('name', "logs")
+              await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
+              await logs.send(embed)
+              
+       }
 });
        
 bot.login(process.env.TOKEN)
