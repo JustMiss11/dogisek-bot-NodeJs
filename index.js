@@ -245,7 +245,14 @@ bot.on("message", message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " zabanoval/a")
                          
-              .addField(Zabanován/a:"
+              .addField("Zabanován/a:", user)
+              .addField("Zabanován/a od:", author1)
+              .addField("Dúvod:", reason)
+              .setColor("RED")
+              .setTimestamp();
+              let logs = message.guild.channels.find('name', "logs")
+              logs.send(embed)
+              await message.guild.member(user).ban(reason);
        }
 });
        
