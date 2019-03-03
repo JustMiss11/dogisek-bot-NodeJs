@@ -258,7 +258,7 @@ bot.on("message", message => {
                      "color": 0x700606,
                      
               }});
-              if(user.hasPermissions("BAN_MEMBERS") return message.channel.send({embed:{
+              if(user.hasPermissions("BAN_MEMBERS")) return message.channel.send({embed:{
                      "author":{
                             "name": "Error"
                      },
