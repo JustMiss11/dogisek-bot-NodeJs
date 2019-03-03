@@ -36,7 +36,7 @@ bot.on("message", message => {
        let author1 = message.author.username;
        let user = message.mentions.members.first();
        let reason = args.join(" ").slice(0);
-       
+       //ping
        if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
               .setAuthor("GALAXY Core!", message.author.avatarURL)
@@ -48,6 +48,7 @@ bot.on("message", message => {
               message.channel.send(embed)
               return;
        }
+       //invite
        if(cmd === `${prefix}invite`.toLowerCase()) {
               if(message.author.id !== "342364288310312970") return message.channel.send("Nejsi developer!");
      //  if(cmd === "invite".toLowerCase()) {
@@ -60,6 +61,7 @@ bot.on("message", message => {
               message.channel.send(embed)
               return;
        }
+       //help
        if(cmd === `${prefix}help`){
               var embed = new Discord.RichEmbed()
               .setAuthor(`${message.guild.name}`, message.guild.iconURL)
@@ -85,6 +87,7 @@ bot.on("message", message => {
                      });
               return;
        }
+       //report
        if(cmd === `${prefix}report`){
               if(!user) return message.channel.send({embed:{
                      "author":{
@@ -115,6 +118,7 @@ bot.on("message", message => {
               let channel = message.guild.channels.find('name', "reports");
               channel.send(embed);
        }
+       //warn
        if(cmd === `${prefix}warn`){
           //  const Discord = require("discord.js");
 //const fs = require("fs");
@@ -195,6 +199,7 @@ bot.on("message", message => {
          }, ms(mutetime))
          }
      }
+       //meme
      if(cmd === `${prefix}meme`){
 
          let reddit = ["meme",
@@ -221,7 +226,7 @@ bot.on("message", message => {
                            })//then(() => message.channel.stopTyping()); 
                }).catch(err => console.error(err));
      };
-     
+     //log
      if(cmd === `${prefix}log`){
         if(message.author.id !== "342364288310312970") return message.reply('Nejsi Developer tohodle bota!');
             
@@ -235,7 +240,13 @@ bot.on("message", message => {
         logC.send(embed)
         return;
        };
-       
+       //ban
+       if(cmd === `${prefix}ban`){
+              var embed = new Discord.RichEmbed()
+              .setAuthor(author1 + " zabanoval/a")
+                         
+              .addField(Zabanován/a:"
+       }
 });
        
 bot.login(process.env.TOKEN)
