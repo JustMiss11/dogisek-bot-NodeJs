@@ -274,7 +274,7 @@ bot.on("message", message => {
                          
               .addField("Zabanován/a:", user)
               .addField("Zabanován/a od:", author1)
-              .addField("Dúvod:", args.join(" ").slice(2)
+              .addField("Dúvod:", args.join(" "))
               .setColor("RED")
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
