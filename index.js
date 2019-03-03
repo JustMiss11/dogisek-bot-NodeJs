@@ -211,9 +211,9 @@ bot.on("message", message => {
                             await message.channel.send({
                                   files: [{ 
                                          attachment: url, 
-                                         name: ["meme.png",
-                                                "memejs"
-                                               ]
+                                         name: "meme.png"
+                                                
+                                              
                                  }]           
                            })//then(() => message.channel.stopTyping()); 
                }).catch(err => console.error(err));
