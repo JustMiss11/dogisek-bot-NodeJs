@@ -242,6 +242,7 @@ bot.on("message", message => {
        };
        //ban
        if(cmd === `${prefix}ban`){
+              if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
               if(!user) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
@@ -266,7 +267,7 @@ bot.on("message", message => {
                      "color": 0x700606,
                      
               }});
-              if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
+            //  if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
                                                                                            
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " zabanoval/a")
