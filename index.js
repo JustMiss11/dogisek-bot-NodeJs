@@ -226,7 +226,7 @@ bot.on("message", message => {
         .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
         .setDescription(reason)
         .setFooter(`Log od: ${author1}`)
-        .setTimeStamp()
+      //  .setTimeStamp()
         .setColor('GREEN');
         let logC = message.guild.channels.find('name', "galaxy-core-updates");
         logC.send(embed)
