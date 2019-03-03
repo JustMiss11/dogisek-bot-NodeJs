@@ -67,9 +67,12 @@ bot.on("message", message => {
              
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
+              .addField("log", "Pošle novej update.")
               .setTimestamp()
+              .addField("🙂 Fun (1)", "`meme`")
+              .addField("🔨 Moderation (1)", "`warn`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
-              .setFooter("Dogisek Bot©");
+              .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
                      
               
