@@ -244,9 +244,10 @@ bot.on("message", async message => {
                },
                "color": "GREEN",
                "description": reason1,
-               "footer": [
+               "footer": {
                       "text": `Log od ${author1}`,
-               ]
+                      "icon_url": message.author.avatarURL
+               }
         }})
         return;
        };
