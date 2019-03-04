@@ -346,11 +346,13 @@ bot.on("message", async message => {
            //   let reason1 = args[2];
               let SuspendRole = message.guild.roles.find('name', "►-Suspended");
               let suspendT = args[1];
+              
+              if(!user) return message.channel.send(":x: || **Zadej člověka**");
+           
               if(!suspendT) return message.reply("❌ || **Zadej čas!**");
 
-              if(!user) return message.channel.send(":x: || **Zadej člověka**");
-           //   if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
-              if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
+            //  if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
+              if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
               await(user.addRole(SuspendRole.id));
               
