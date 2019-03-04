@@ -231,14 +231,23 @@ bot.on("message", async message => {
      if(cmd === `${prefix}log`){
         if(message.author.id !== "342364288310312970") return message.reply('Nejsi Developer tohodle bota!');
         let reason1 = args.join(" ").slice(22)
-        var embed = new Discord.RichEmbed()
-        .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
-        .setDescription(reason1)
-        .setFooter(`Log od: ${author1}`)
+     //   var embed = new Discord.RichEmbed()
+       // .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
+    //    .setDescription(reason1)
+     //   .setFooter(`Log od: ${author1}`)
       //  .setTimeStamp()
-        .setColor('GREEN');
+      //  .setColor('GREEN');
         let logC = message.guild.channels.find('name', "galaxy-core-updates");
-        logC.send(embed)
+        logC.send({embed:{
+               "author":{
+                      "name": message.guild.name
+               },
+               "color": "GREEN",
+               "description": reason1,
+               "footer": [
+                      "text": `Log od ${author1}`,
+               ]
+        }})
         return;
        };
        //ban
