@@ -366,7 +366,7 @@ bot.on("message", async message => {
               .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
-              await message.channel.send("✅ || **" + user + "byl suspendován za " + reason1 + "**");
+              await message.channel.send("✅ || **" + user + "byl suspendován za **");
               
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
