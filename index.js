@@ -242,7 +242,7 @@ bot.on("message", async message => {
                "author":{
                       "name": message.guild.name
                },
-               "color": "GREEN",
+               "color": "1118316",
                "description": reason1,
                "footer": {
                       "text": `Log od ${author1}`,
