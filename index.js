@@ -342,12 +342,14 @@ bot.on("message", async message => {
        }
        if(cmd === `${prefix}suspend`){
               
-              let suspendT = args[1];
-              let reason1 = args[2];
+            //  let suspendT = args[1];
+           //   let reason1 = args[2];
               let SuspendRole = message.guild.roles.find('name', "►-Suspended");
-              
+              let suspendT = args[1];
+              if(!suspendT) return message.reply("❌ || **Zadej čas!**");
+
               if(!user) return message.channel.send(":x: || **Zadej člověka**");
-              if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
+           //   if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
               if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
               await(user.addRole(SuspendRole.id));
@@ -357,9 +359,9 @@ bot.on("message", async message => {
               .setAuthor("Suspend log")
               .addField("Suspendován:", user)
               .addField("Administrátor:", author1)
-              .addField("Dúvod:", reason1)
+           //   .addField("Dúvod:", reason1)
               .addField("Čas suspenze:", message.createdAt)
-              .addField("Čas:", `${ms(suspendT)}`);
+              .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
               await message.channel.send("✅ || **" + user + "byl suspendován za " + reason1 + "**");
