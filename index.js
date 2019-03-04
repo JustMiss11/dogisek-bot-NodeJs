@@ -13,7 +13,7 @@ bot.on("ready", () => {
        //   `to ${bot.guilds.size} servers!`, //shows in how many servers I am!
           "můj prefix je >", //my Prefix!
           "začni s >help", //simple help!
-          "Version: 3.3-alpha!", //Bots version!
+          "Version: 3.5-alpha!", //Bots version!
           `kolem ${bot.users.size} lidí!` //shows how many users im managing!
        ]
 
@@ -72,7 +72,7 @@ bot.on("message", async message => {
               .addField("log", "Pošle novej update.")
               .setTimestamp()
               .addField("😅 Fun (1)", "`meme`")
-              .addField("🔨 Moderation (3)", "`warn`, `ban`, `kick`")
+              .addField("🔨 Moderation (3)", "`warn`, `ban`, `kick`, `suspend`")
               .addField("🙂 General (1)", "`report`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
@@ -232,7 +232,7 @@ bot.on("message", async message => {
      //log
      if(cmd === `${prefix}log`){
         if(message.author.id !== "342364288310312970") return message.reply('Nejsi Developer tohodle bota!');
-        let reason1 = args.join(" ").slice(22)
+        let reason1 = args.join(" ").slice(0)
      //   var embed = new Discord.RichEmbed()
        // .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
     //    .setDescription(reason1)
