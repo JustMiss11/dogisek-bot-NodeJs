@@ -230,10 +230,10 @@ bot.on("message", async message => {
      //log
      if(cmd === `${prefix}log`){
         if(message.author.id !== "342364288310312970") return message.reply('Nejsi Developer tohodle bota!');
-            
+        let reason1 = args.join(" ").slice(22)
         var embed = new Discord.RichEmbed()
         .setAuthor(`${message.guild.name} New Galaxy Core Update!`, message.guild.iconURL)
-        .setDescription(reason)
+        .setDescription(reason1)
         .setFooter(`Log od: ${author1}`)
       //  .setTimeStamp()
         .setColor('GREEN');
