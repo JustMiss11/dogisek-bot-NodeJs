@@ -66,7 +66,7 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(`${message.guild.name}`, message.guild.iconURL)
               .setColor("GREEN")
-              .setDescription("Pokud budete spamovat/zneužívat nějaký z těhto příkazů tak dostanete warn; warn, ban, kick, report
+              .setDescription("Pokud budete spamovat/zneužívat nějaký z těhto příkazů tak dostanete warn; warn, ban, kick, report")
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
               .addField("log", "Pošle novej update.")
