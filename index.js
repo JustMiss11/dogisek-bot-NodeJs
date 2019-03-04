@@ -66,13 +66,14 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(`${message.guild.name}`, message.guild.iconURL)
               .setColor("GREEN")
-             
+              .setDescription("Pokud budete spamovat/zneužívat nějaký z těhto příkazů tak dostanete warn; warn, ban, kick, report
               .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
               .addField("invite", "Dá Invite na bota")
               .addField("log", "Pošle novej update.")
               .setTimestamp()
-              .addField("🙂 Fun (1)", "`meme`")
+              .addField("😅 Fun (1)", "`meme`")
               .addField("🔨 Moderation (3)", "`warn`, `ban`, `kick`")
+              .addField("🙂 General (1)", "`report`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -115,7 +116,7 @@ bot.on("message", async message => {
               .addField("Reportován:", user)
               .addField("Reportován od:", author1)
               .addField("Důvod:", reason);
-              let channel = message.guild.channels.find('name', "reports");
+              let channel = message.guild.channels.find('name', "logs");
               channel.send(embed);
        }
        //warn
