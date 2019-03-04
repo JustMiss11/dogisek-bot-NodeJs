@@ -118,6 +118,7 @@ bot.on("message", async message => {
               .addField("Důvod:", reason);
               let channel = message.guild.channels.find('name', "logs");
               channel.send(embed);
+              await message.channel.send("✅ || **" + user + " byl reportován");
        }
        //warn
        if(cmd === `${prefix}warn`){
@@ -159,6 +160,7 @@ bot.on("message", async message => {
               .addField("Reason", reason);
 
                warnchannel.send(warnEmbed);
+               await message.channel.send("✅ || ** " + user + " byl varován!**");
 
            if(warns == 1){
               let muterole = message.guild.roles.find(`name`, "1. STRIKE");
@@ -291,6 +293,7 @@ bot.on("message", async message => {
               let logs = message.guild.channels.find('name', "logs")
               await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
               await logs.send(embed)
+              message.channel.send(":white_check_mark: ||** Úspěšně zabanován " + user + "za " + reason1);
               
        }//.catch(err => console.error(err));
        //KICK
@@ -334,7 +337,37 @@ bot.on("message", async message => {
               let logs = message.guild.channels.find('name', "logs")
               await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
               await logs.send(embed)
+              message.channel.send(":white_check_mark: ||** Úspěšně vyhozen " + user + " za " + reason1);
+             
+       }
+       if(cmd === `${prefix}suspend`){
               
+              let suspendT = args[1];
+              let reason1 = args[2];
+              let SuspendRole = message.guild.roles.find('name', "►-Suspended");
+              
+              if(!user) return message.channel.send(":x: || **Zadej člověka**");
+              if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
+              if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
+              
+              await(user.addRole(SuspendRole.id));
+              
+              var embed = new Discord.RichEmbed()
+              .setColor("RED")
+              .setAuthor("Suspend log")
+              .addField("Suspendován:", user)
+              .addField("Administrátor:", author1)
+              .addField("Dúvod:", reason1)
+              .addField("Čas suspenze:", message.createdAt)
+              .addField("Čas:", `${ms(suspendT)}`);
+              let logs = message.guild.channels.find('name', "logs");
+              logs.send(embed);
+              await message.channel.send("✅ || **" + user + "byl suspendován za " + reason1 + "**");
+              
+              setTimeout(function(){
+                     user.removeRole(SuspendRole.id);
+                     logs.send(`**<@${user.id}> byl unsuspendován!**`);
+              }, ms(suspendT))
        }
 });
        
