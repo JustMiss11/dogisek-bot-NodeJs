@@ -384,16 +384,17 @@ bot.on("message", async message => {
               .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
+              user.removeRole(AT1.id);
+              await user.removeRole(AT2.id);
+              await user.removeRole(AT3.id);
+              await user.removeRole(AT4.id);
+              await user.removeRole(AT5.id);
+              await user.removeRole(AT6.id);
               await message.channel.send("✅ || **" + user + " byl suspendován!**");
               
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
-                     user.removeRole(AT1.id);
-                     user.removeRole(AT2.id);
-                     user.removeRole(AT3.id);
-                     user.removeRole(AT4.id);
-                     user.removeRole(AT5.id);
-                     user.removeRole(AT6.id);
+                     
                      logs.send(`**<@${user.id}> byl unsuspendován!**`);
               }, ms(suspendT))
        }
