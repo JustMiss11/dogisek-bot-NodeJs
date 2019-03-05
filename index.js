@@ -24,7 +24,18 @@ bot.on("ready", () => {
     }, 5000)
 });
 
-
+bot.on("guildMemberAdd", member => {
+       let user = member
+       let channel = member.guild.channels.find('name', "👋log");
+       let avatar = member.user.avatarURL;
+       
+       var embed = new Discord.RichEmbed()
+       .setAuthor("Welcome!", avatar)
+       .setColor("GREEN")
+       .setDescription(`Vítej **${user}** to G A L A X Y > v2! Přečti si <#547438566075138052> a neporušuj je! Jasný?`)
+       .setThumbnail(avatar);
+       channel.send(embed)
+})
 bot.on("message", async message => {
        if(message.author.bot) return;
        if(!message.content.startsWith(prefix)) return;
@@ -373,6 +384,7 @@ bot.on("message", async message => {
                      logs.send(`**<@${user.id}> byl unsuspendován!**`);
               }, ms(suspendT))
        }
+       
 });
        
 bot.login(process.env.TOKEN)
