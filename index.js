@@ -356,6 +356,13 @@ bot.on("message", async message => {
             //  let suspendT = args[1];
            //   let reason1 = args[2];
               let SuspendRole = message.guild.roles.find('name', "►-Suspended");
+              let AT1 = message.guild.roles.find('name', "►-Vedení");               //►-Vedení  ►-Administrátor  ►-Manažer  ►-Helper  ►-Support Team  ►-Moderátor 
+              let AT2 = message.guild.roles.find('name', "►-Administrátor");
+              let AT3 = message.guild.roles.find('name', "►-Manažer");
+              
+              let AT4 = message.guild.roles.find('name', "►-Helper");
+              let AT5 = message.guild.roles.find('name', "►-Support Team");
+              let AT6 = message.guild.roles.find('name', "►-Moderátor");
               let suspendT = args[1];
               
               if(!user) return message.channel.send(":x: || **Zadej člověka**");
@@ -381,6 +388,12 @@ bot.on("message", async message => {
               
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
+                     user.removeRole(AT1.id);
+                     user.removeRole(AT2.id);
+                     user.removeRole(AT3.id);
+                     user.removeRole(AT4.id);
+                     user.removeRole(AT5.id);
+                     user.removeRole(AT6.id);
                      logs.send(`**<@${user.id}> byl unsuspendován!**`);
               }, ms(suspendT))
        }
