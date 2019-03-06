@@ -484,8 +484,59 @@ bot.on("message", async message => {
           .setThumbnail(memberInfo.user.avatarURL);
   
           message.channel.send(userinfoo);
-  }
-       }
+      }
+    }
+     if(cmd === `${prefix}evals`){
+	     var bot = bot;
+  var msg = message;
+
+    if (message.author.id !== "342364288310312970") return message.channel.send("This command is only for developers!")
+
+    const embed = new Discord.RichEmbed()
+    .setColor(message.guild.me.displayHexColor)
+    .addField('Input', '```js\n' + args.join(" ") + '```')
+
+    try {
+      const code = args.join(" ");
+      if (!code) return;
+      let evaled;
+      if (code.includes(`token`)) {
+        evaled = 'TOKEN!!! O-oh thats my token';
+      } else {
+        evaled = eval(code);
+      }
+
+      if (typeof evaled !== "string")
+      evaled = require('util').inspect(evaled, { depth: 0});
+
+      let output = clean(evaled);
+      if (output.length > 1023) {
+          embed.addField('Output', '```js\n' + output + '```')
+          embed.setFooter(`React to delete message.`);
+      } else {
+          embed.addField('Output', '```js\n' + output + '```')
+          embed.setFooter(`React to delete message.`);
+      }
+      const m = await message.channel.send(embed);
+    } catch (e) {
+      let error = clean(e);
+      const m = await message.channel.send(embed);
+    }
+
+}
+
+function clean(text) {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
+
+
+
+ 
+
+     }
 });
        
 bot.login(process.env.TOKEN)
