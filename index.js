@@ -83,8 +83,8 @@ bot.on("message", async message => {
               .addField("log", "Pošle novej update.")
               .setTimestamp()
               .addField("😅 Fun (1)", "`meme`")
-              .addField("🔨 Moderation (3)", "`warn`, `ban`, `kick`, `suspend`")
-              .addField("🙂 General (1)", "`report`")
+              .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
+              .addField("🙂 General (6)", "`report, `user`, `server`, `cat`, `dog`, `data``")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -419,7 +419,73 @@ bot.on("message", async message => {
               message.channel.send(embed)
               return;
        }
-       
+       if(cmd === `${prefix}dog`){
+              let api = "dogs"
+              randompuppy(api).then(api => {
+                   const theirembed = new Discord.RichEmbed()
+	            .setAuthor("Dog 🐕 ")
+                   .setColor(0xff9000)
+                   .setImage(api)
+                   .setFooter("Galaxy Core")
+                   .setTimestamp();
+                   message.channel.send(theirembed)
+             })
+       }
+       if(cmd === `${prefix}cat`){
+              let api = "cats"
+              randompuppy(api).then(api => {
+                   const theirembed = new Discord.RichEmbed()
+	            .setAuthor("Cat 🐈 ")
+                   .setColor(0xff9000)
+                   .setImage(api)
+                   .setFooter("Galaxy Core")
+                   .setTimestamp();
+                   message.channel.send(theirembed)
+             })
+       }
+       if(cmd === `${prefix}server`){
+              var serverinfo = new Discord.RichEmbed()
+             .setAuthor("Server Info")
+             .setColor("RANDOM")
+             .addField("Server Name", message.guild.name)
+             .addField("Created", message.guild.createdAt)
+             .addField("You Already Join", message.member.joinedAt)
+             .addField("Owner", message.guild.owner)
+             .addField("Owner ID", message.guild.owner.id)
+
+             .setThumbnail(message.guild.iconURL);
+
+             message.channel.send(serverinfo);
+       }
+       if(cmd === `${prefix}user`){
+              let memberInfo = message.mentions.members.first();
+
+  if(!memberInfo){
+    var userinfo = new Discord.RichEmbed()
+        .setAuthor("User info")
+        .addField("Username:", `${message.author.username}#${message.author.discriminator}` + "\n" )
+        .addField("ID: ",message.author.id + "\n" )
+        .addField("Created At: ", message.author.createdAt)
+        .setColor("RANDOM")
+
+        .setThumbnail(message.author.avatarURL)
+
+        message.channel.send(userinfo);
+
+    }else{
+
+      var userinfoo = new Discord.RichEmbed()
+          .setAuthor("User info")
+          .addField("Username: ", `${memberInfo.user.username}#${memberInfo.user.discriminator}` + "\n" )
+          .addField("ID: ", memberInfo.id + "\n" )
+          .addField("Created At: ", memberInfo.user.createdAt)
+          .setColor("RANDOM")
+
+          .setThumbnail(memberInfo.user.avatarURL);
+  
+          message.channel.send(userinfoo);
+  }
+       }
 });
        
 bot.login(process.env.TOKEN)
