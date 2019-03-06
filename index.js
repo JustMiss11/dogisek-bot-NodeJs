@@ -422,7 +422,7 @@ bot.on("message", async message => {
               .setDescription("Použití: `>data <data typ>` \n Data: \n `warns`");
               message.channel.send(embed)
               return;
-            }
+            
        }
 	       
        if(cmd === `${prefix}dog`){
