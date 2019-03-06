@@ -401,7 +401,7 @@ bot.on("message", async message => {
        if(cmd === `${prefix}data`){
               if(args[0] == "warns"){
                      let warns = db.fetch(`warns_${user.id}`);
-		      if(!user){
+		      if(!user) user = message.author; {
 			        return message.channel.send({embed:{
 			          "author": {
 				      "name": message.author.username
@@ -430,7 +430,6 @@ bot.on("message", async message => {
                           message.channel.send(embed)
                           return;
                  }
-              if(!user) user = message.author
               
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
