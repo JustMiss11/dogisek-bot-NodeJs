@@ -398,6 +398,27 @@ bot.on("message", async message => {
                      logs.send(`**<@${user.id}> byl unsuspendován!**`);
               }, ms(suspendT))
        }
+       if(cmd === `${prefix}data`){
+              if(args[0] == "warns"){
+                     if(!user) user = message.author;
+                     
+                     let warns = db.fetch(`warns_${user.id}`);
+                     
+                     var embed = new Discord.RichEmbed()
+                     .setDescription(`Warn data`)
+                     .addField("Your warns:", `${warns? `${warns}` : '0'}`)
+                   //  .addField("Reasons", `${reasons ? `${reasons}` : 'No reasons'}`)
+                     .setColor("0xe57e24");
+                      message.channel.send(embed)
+                     return;
+              }
+              var embed = new Discord.RichEmbed()
+              .setAuthor("Data")
+              .setColor("BLUE")
+              .setDescription("Použití: `>data <data typ>` \n Data: \n `warns`");
+              message.channel.send(embed)
+              return;
+       }
        
 });
        
