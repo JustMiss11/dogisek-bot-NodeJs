@@ -84,7 +84,7 @@ bot.on("message", async message => {
               .setTimestamp()
               .addField("😅 Fun (1)", "`meme`")
               .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
-              .addField("🙂 General (6)", "`report, `user`, `server`, `cat`, `dog`, `data``")
+              .addField("🙂 General (6)", "`report`, `user`, `server`, `cat`, `dog`, `data`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -421,7 +421,7 @@ bot.on("message", async message => {
        }
        if(cmd === `${prefix}dog`){
               let api = "dogs"
-              randompuppy(api).then(api => {
+              randomPuppy(api).then(api => {
                    const theirembed = new Discord.RichEmbed()
 	            .setAuthor("Dog 🐕 ")
                    .setColor(0xff9000)
@@ -433,7 +433,7 @@ bot.on("message", async message => {
        }
        if(cmd === `${prefix}cat`){
               let api = "cats"
-              randompuppy(api).then(api => {
+              randomPuppy(api).then(api => {
                    const theirembed = new Discord.RichEmbed()
 	            .setAuthor("Cat 🐈 ")
                    .setColor(0xff9000)
