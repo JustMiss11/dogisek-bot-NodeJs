@@ -399,6 +399,7 @@ bot.on("message", async message => {
               }, ms(suspendT))
        }
        if(cmd === `${prefix}data`){
+	      let user = message.mentions.members.first();
               if(args[0] == "warns"){
 		      let user2 = message.mentions.member.first();
                      let warns = db.fetch(`warns_${user.id}`);
