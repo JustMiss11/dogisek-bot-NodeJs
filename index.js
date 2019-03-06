@@ -401,7 +401,7 @@ bot.on("message", async message => {
        if(cmd === `${prefix}data`){
 	      
               if(args[0] == "warns"){
-		      let user2 = message.mentions.member.first();
+		      let user = message.mentions.member.first();
                       let warns = db.fetch(`warns_${user.id}`);
 		      if(!user){
 			      var embed = new Discord.RichEmbed()
@@ -409,8 +409,8 @@ bot.on("message", async message => {
 			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
                               .setColor("0xe57e24");
 			      message.channel.send(embed)
-                      }
-		}else{
+                      
+                      }else{
                      
 			     let user = message.mentions.members.first();
 			     let warns = db.fetch(`warns_${user.id}`);
@@ -421,7 +421,7 @@ bot.on("message", async message => {
                          .setColor("0xe57e24");
                           message.channel.send(embed)
                           return;
-                     }
+               }
 		  
                  
               
