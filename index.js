@@ -399,7 +399,7 @@ bot.on("message", async message => {
               }, ms(suspendT))
        }
        if(cmd === `${prefix}data`){
-	      let user = message.mentions.members.first();
+	      
               if(args[0] == "warns"){
 		      let user2 = message.mentions.member.first();
                      let warns = db.fetch(`warns_${user.id}`);
@@ -423,6 +423,7 @@ bot.on("message", async message => {
                      
                      //let warns = db.fetch(`warns_${user.id}`);
                      if(args[0] == user){
+			     let user = message.mentions.members.first();
 			     let warns = db.fetch(`warns_${user.id}`);
                          var embed = new Discord.RichEmbed()
                          .setDescription(`Warn data`)
