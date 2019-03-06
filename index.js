@@ -36,6 +36,20 @@ bot.on("guildMemberAdd", member => {
        .setThumbnail(avatar);
        channel.send(embed)
 })
+
+bot.on("guildMemberRemove", member => {
+       let user = member
+       let channel = member.guild.channels.find('name', "👋log");
+       let avatar = member.user.avatarURL;
+       
+       var embed = new Discord.RichEmbed()
+       .setAuthor("Papa!", avatar)
+       .setColor("GREEN")
+       .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět.||`)
+       .setThumbnail(avatar);
+       channel.send(embed)
+})
+
 bot.on("message", async message => {
        if(message.author.bot) return;
        if(!message.content.startsWith(prefix)) return;
@@ -45,7 +59,7 @@ bot.on("message", async message => {
        let args = messageArray.slice(1);
        let content = message.content;
        let author1 = message.author.username;
-       let user = message.mentions.members.first();
+       let user = message.mentions.users.first();
        let reason = args.join(" ").slice(0);
        //ping
        if(cmd === `${prefix}PING`.toLowerCase ()) {
@@ -401,7 +415,7 @@ bot.on("message", async message => {
        if(cmd === `${prefix}data`){
 	      
               if(args[0] == "warns"){
-		      let user = message.mentions.members.first();
+		      let user = message.mentions.users.first();
                       let warns = db.fetch(`warns_${user.id}`);
 		      if(!user) user = message.author;
 			      var embed = new Discord.RichEmbed()
