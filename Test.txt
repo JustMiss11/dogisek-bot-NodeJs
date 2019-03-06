@@ -1,5 +1,35 @@
+const Discord = require("discord.js");
+//const fs = require("fs");
+const db = require('quick.db');
 
+module.exports.run = async (bot, message, args) => {
+  var user = message.mentions.users.first() || bot.users.get(args[0]);
+  if(!user) user = message.author;
+  const warns = db.fetch(`warns_${user.id}`);
+  
+  
+ // if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't do that.");
+
+  if(user) {
+    var embed = new Discord.RichEmbed()
+  .setDescription(`${user}'s profile`)
+  .addField("Warns of user:", `${warns ? `${warns}` : '0'}`)
+  .addField("Reasons", `${reasons ? `${reasons}` : 'No reasons'}`)
+  .setColor("0xe57e24");
+  message.channel.send(embed)
+  } else {
+  
+  var embed = new Discord.RichEmbed()
+  .setDescription(`Your profile`)
+  .addField("Your warns:", `${warns? `${warns}` : '0'}`)
+  .addField("Reasons", `${reasons ? `${reasons}` : 'No reasons'}`)
+  .setColor("0xe57e24");
+  message.channel.send(embed)
+  }
+}
 
 module.exports.help = {
-  name: "warn"
+  name: "profile"
 }
+
+
