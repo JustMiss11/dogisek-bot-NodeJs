@@ -430,7 +430,7 @@ bot.on("message", async message => {
                           message.channel.send(embed)
                           return;
                      }
-                 }
+                 
               
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
