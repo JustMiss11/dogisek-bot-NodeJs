@@ -409,7 +409,8 @@ bot.on("message", async message => {
 			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
                               .setColor("0xe57e24");
 			      message.channel.send(embed)
-		      }else{
+                      }
+		}else{
                      
 			     let user = message.mentions.members.first();
 			     let warns = db.fetch(`warns_${user.id}`);
