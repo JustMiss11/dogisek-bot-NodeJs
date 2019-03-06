@@ -431,7 +431,7 @@ bot.on("message", async message => {
                           return;
                      }
                   }
-              }
+              
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
               .setColor("BLUE")
