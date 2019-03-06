@@ -408,7 +408,7 @@ bot.on("message", async message => {
 			      "fields":[
 				      {
 				         "name": "Tvá varování:",
-				         "value": `${warns? `${warns}` : '0'}`)
+				         "value": `${warns? `${warns}` : '0'}`
 				      
 				      }
 				     
