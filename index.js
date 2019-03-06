@@ -403,25 +403,16 @@ bot.on("message", async message => {
               if(args[0] == "warns"){
 		      let user = message.mentions.member.first();
                       let warns = db.fetch(`warns_${user.id}`);
-		      if(!user){
+		      if(!user) user = message.author;
 			      var embed = new Discord.RichEmbed()
 			      .setAuthor(message.author.username)
 			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
                               .setColor("0xe57e24");
 			      message.channel.send(embed)
-                      
-                      }else{
+                      }
                      
-			     let user = message.mentions.members.first();
-			     let warns = db.fetch(`warns_${user.id}`);
-                         var embed = new Discord.RichEmbed()
-                         .setDescription(`Warn data`)
-                         .addField(`${user}'s data`, `${warns? `${warns}` : '0'}`)
-                   //  .addField("Reasons", `${reasons ? `${reasons}` : 'No reasons'}`)
-                         .setColor("0xe57e24");
-                          message.channel.send(embed)
-                          return;
-               }
+                     
+			     
 		  
                  
               
