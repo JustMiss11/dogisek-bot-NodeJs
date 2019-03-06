@@ -536,7 +536,9 @@ function clean(text) {
 
  
 
-     }
+     })
+   }
+   
 });
        
 bot.login(process.env.TOKEN)
