@@ -422,6 +422,7 @@ bot.on("message", async message => {
                      
                      //let warns = db.fetch(`warns_${user.id}`);
                      if(args[0] == user){
+			     let warns = db.fetch(`warns_${user.id}`);
                          var embed = new Discord.RichEmbed()
                          .setDescription(`Warn data`)
                          .addField(`${user}'s data`, `${warns? `${warns}` : '0'}`)
