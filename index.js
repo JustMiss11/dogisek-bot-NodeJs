@@ -22,7 +22,7 @@ bot.on("ready", () => {
         bot.user.setActivity(status, {type: "LISTENING"});
         bot.user.setStatus("idle"); //online, idle, dnd
     }, 5000)
-});
+}); 
 
 bot.on("guildMemberAdd", member => {
        let user = member
@@ -400,8 +400,11 @@ bot.on("message", async message => {
        }
        if(cmd === `${prefix}data`){
               if(args[0] == "warns"){
+		      let user2 = message.mentions.member.first();
                      let warns = db.fetch(`warns_${user.id}`);
-		      if(!user) user = message.author; {
+		      if(!user2) user2 = message.author;
+		      if(args[0] == user2){
+		      
 			        return message.channel.send({embed:{
 			          "author": {
 				      "name": message.author.username
