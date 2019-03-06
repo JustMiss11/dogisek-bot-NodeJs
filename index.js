@@ -333,7 +333,7 @@ bot.on("message", async message => {
                      },
                      "description": "Nemohu tohodle uživatele kicknout. \nUživatel má pravomoc: KICK_MEMBERS.",
                      "color": 0x700606,
-                     
+                     you
               }});
             //  if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
               
@@ -402,27 +402,15 @@ bot.on("message", async message => {
 	      
               if(args[0] == "warns"){
 		      let user2 = message.mentions.member.first();
-                     let warns = db.fetch(`warns_${user.id}`);
-		      if(!user) return message.channel.send({embed:{
-			          "author": {
-				      "name": message.author.username
-			          },
-			          "fields":[
-				      {
-				         "name": "Tvá varování:",
-				         "value": `${warns? `${warns}` : '0'}`
-				      
-				      }
-				     
-				       
-				      
-			          ],
-			          "color": 0xe57e24,
-		          }})
-		     }
+                      let warns = db.fetch(`warns_${user.id}`);
+		      if(!user){
+			      var embed = new Discord.RichEmbed()
+			      .setAuthor(message.author.username)
+			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
+                              .setColor("0xe57e24");
+			      message.channel.send(embed)
+		      }else{
                      
-                     //let warns = db.fetch(`warns_${user.id}`);
-                     if(args[0] == user){
 			     let user = message.mentions.members.first();
 			     let warns = db.fetch(`warns_${user.id}`);
                          var embed = new Discord.RichEmbed()
@@ -433,6 +421,7 @@ bot.on("message", async message => {
                           message.channel.send(embed)
                           return;
                      }
+		  
                  
               
               var embed = new Discord.RichEmbed()
