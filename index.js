@@ -419,7 +419,7 @@ bot.on("message", async message => {
 			          "color": 0xe57e24,
 		          }})
 		          return;
-                     }else{
+                     
                      //let warns = db.fetch(`warns_${user.id}`);
                      
                          var embed = new Discord.RichEmbed()
@@ -429,8 +429,8 @@ bot.on("message", async message => {
                          .setColor("0xe57e24");
                           message.channel.send(embed)
                           return;
-                     }
-                  }
+                 }
+              if(!user) user = message.author
               
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
