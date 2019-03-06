@@ -487,10 +487,11 @@ bot.on("message", async message => {
       }
     }
      if(cmd === `${prefix}evals`){
+	     
 	     var bot = bot;
-  var msg = message;
+             var msg = message;
 
-    if (message.author.id !== "342364288310312970") return message.channel.send("This command is only for developers!")
+    if (message.author.id !== "342364288310312970") return message.channel.send("Tento příkaz je jen pro Developera!")
 
     const embed = new Discord.RichEmbed()
     .setColor(message.guild.me.displayHexColor)
@@ -535,10 +536,10 @@ function clean(text) {
 
 
  
-
-     })
    }
-   
 });
+   
+   
+
        
 bot.login(process.env.TOKEN)
