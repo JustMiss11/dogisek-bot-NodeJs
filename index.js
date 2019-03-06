@@ -401,7 +401,7 @@ bot.on("message", async message => {
        if(cmd === `${prefix}data`){
 	      
               if(args[0] == "warns"){
-		      let user = message.mentions.member.first();
+		      let user = message.mentions.members.first();
                       let warns = db.fetch(`warns_${user.id}`);
 		      if(!user) user = message.author;
 			      var embed = new Discord.RichEmbed()
