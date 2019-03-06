@@ -418,7 +418,7 @@ bot.on("message", async message => {
 			          ],
 			          "color": 0xe57e24,
 		          }})
-		          return;
+		     }
                      
                      //let warns = db.fetch(`warns_${user.id}`);
                      
