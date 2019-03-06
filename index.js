@@ -402,10 +402,7 @@ bot.on("message", async message => {
               if(args[0] == "warns"){
 		      let user2 = message.mentions.member.first();
                      let warns = db.fetch(`warns_${user.id}`);
-		      if(!user2) user2 = message.author;
-		      if(args[0] == user2){
-		      
-			        return message.channel.send({embed:{
+		      if(!user) return message.channel.send({embed:{
 			          "author": {
 				      "name": message.author.username
 			          },
@@ -424,7 +421,7 @@ bot.on("message", async message => {
 		     }
                      
                      //let warns = db.fetch(`warns_${user.id}`);
-                     
+                     if(args[0] == user){
                          var embed = new Discord.RichEmbed()
                          .setDescription(`Warn data`)
                          .addField(`${user}'s data`, `${warns? `${warns}` : '0'}`)
@@ -432,6 +429,7 @@ bot.on("message", async message => {
                          .setColor("0xe57e24");
                           message.channel.send(embed)
                           return;
+                     }
                  }
               
               var embed = new Discord.RichEmbed()
