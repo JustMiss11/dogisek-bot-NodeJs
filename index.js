@@ -380,14 +380,14 @@ bot.on("message", async message => {
 	      var wUser = message.mentions.users.first() || bot.users.get(args[0]);
               let suspendT = args[1];
               
-              if(!user) return message.channel.send(":x: || **Zadej člověka**");
+              if(!wUser) return message.channel.send(":x: || **Zadej člověka**");
              // db.add(`warns_${wUser.id}`, 1)
               if(!suspendT) return message.reply("❌ || **Zadej čas!**");
 
             //  if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
               if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
-              await(user.addRole(SuspendRole.id));
+              await(wUser.addRole(SuspendRole.id));
               db.add(`susp_${wUser.id}`, 1)
 	       
               var embed = new Discord.RichEmbed()
