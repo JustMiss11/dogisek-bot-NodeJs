@@ -44,7 +44,7 @@ bot.on("guildMemberRemove", member => {
        
        var embed = new Discord.RichEmbed()
        .setAuthor("Papa!", avatar)
-       .setColor("GREEN")
+       .setColor("RED")
         .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět.||`)
        .setThumbnail(avatar);
        channel.send(embed)
@@ -603,9 +603,10 @@ function clean(text) {
       return;
    }
    if(cmd === `${prefix}test`){
-	   let msgID = ' ';
+	   var msgID = ''
 	   let r1 = "🗑";
 	   let msg= message.channel.send("Lol")
+	   msg.react(r1);
 	   msgID += message.id
 	   
    }
