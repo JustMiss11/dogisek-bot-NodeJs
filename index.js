@@ -604,15 +604,15 @@ function clean(text) {
    }
    if(cmd === `${prefix}test`){
 	   var msgID = ''
-	   
+	   let r1 = "🗑";
 	   let msg= message.channel.send("Lol")
-	   msg.react('🗑')
+	   await msg.react(r1)
 	   msgID += message.id
 	   
    }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
-	if(user.id !== bot.user.id && reaction.emoji.name === "🗑" && reaction.message.id === msgID){
+	if(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
            reaction.message.delete()
            message.delete()
         }
