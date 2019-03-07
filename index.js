@@ -606,7 +606,7 @@ function clean(text) {
 	   var msgID = ''
 	   let r1 = "🗑";
 	   let msg= message.channel.send("Lol")
-	   msg.react(r1);
+	   msg.addReaction(r1);
 	   msgID += message.id
 	   
    }
