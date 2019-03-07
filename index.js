@@ -377,17 +377,17 @@ bot.on("message", async message => {
               let AT4 = message.guild.roles.find('name', "►-Helper");
               let AT5 = message.guild.roles.find('name', "►-Support Team");
               let AT6 = message.guild.roles.find('name', "►-Moderátor");
-	      let user1 = message.mentions.members.first();
+	      let user = message.mentions.users.first();
               let suspendT = args[1];
               
-              if(!user1) return message.channel.send(":x: || **Zadej člověka**");
+              if(!user) return message.channel.send(":x: || **Zadej člověka**");
              // db.add(`warns_${wUser.id}`, 1)
               if(!suspendT) return message.reply("❌ || **Zadej čas!**");
 
             //  if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
               if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
-              await(user1.addRole(SuspendRole.id));
+              await(user.addRole(SuspendRole.id));
               db.add(`susp_${wUser.id}`, 1)
 	       
               var embed = new Discord.RichEmbed()
