@@ -377,9 +377,10 @@ bot.on("message", async message => {
               let AT4 = message.guild.roles.find('name', "►-Helper");
               let AT5 = message.guild.roles.find('name', "►-Support Team");
               let AT6 = message.guild.roles.find('name', "►-Moderátor");
+	      let user1 = message.members.mentions.first();
               let suspendT = args[1];
               
-              if(!user) return message.channel.send(":x: || **Zadej člověka**");
+              if(!user1) return message.channel.send(":x: || **Zadej člověka**");
              // db.add(`warns_${wUser.id}`, 1)
               if(!suspendT) return message.reply("❌ || **Zadej čas!**");
 
