@@ -572,7 +572,7 @@ function clean(text) {
  
    }
    if(cmd === `${prefix}announce`){
-	   let user = message.guild.member(message.mentions.users.first());
+	  // let user = message.guild.member(message.mentions.users.first());
 	   let content = args.join(" ");
 	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
 	   var embed = new Discord.RichEmbed()
