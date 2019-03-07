@@ -45,7 +45,7 @@ bot.on("guildMemberRemove", member => {
        var embed = new Discord.RichEmbed()
        .setAuthor("Papa!", avatar)
        .setColor("GREEN")
-       .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět.||`)
+        .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět.||`)
        .setThumbnail(avatar);
        channel.send(embed)
 })
@@ -572,6 +572,7 @@ function clean(text) {
  
    }
    if(cmd === `${prefix}announce`){
+      if(args[0] == "everyone"){
 	  // let user = message.guild.member(message.mentions.users.first());
 	   let content = args.join(" ");
 	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
@@ -581,9 +582,20 @@ function clean(text) {
 	   .setFooter(message.author.username)
 	   .setColor("0x26cc7e");
 	   let channel = message.guild.channels.find('id', "544818063107686420");
+	   channel.send("@everyone")
 	   await channel.send(embed)
 	   message.channel.send("✅ || **Informace odeslána!**")
 	   return;
+      }
+      var embed = new Discord.RichEmbed()
+      .setAuthor("G A L A X Y Core")
+      .setDescription(content)
+      .setFooter(message.author.username)
+      .setColor("0x26cc7e");
+      let channel1 = message.guild.channels.find('id', "544818063107686420")
+      await channel1.send(embed)
+      message.channel.send("✅ || **Informace odeslána!**")
+      return;
    }
 });
    
