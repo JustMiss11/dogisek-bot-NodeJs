@@ -608,7 +608,7 @@ function clean(text) {
 	   message.channel.send("Lol").then(async message11 => {
 	     await message11.react(r1)
 	     msgID += message.id
-	   }
+	   })
    }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
