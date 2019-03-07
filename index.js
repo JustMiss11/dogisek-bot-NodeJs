@@ -571,6 +571,20 @@ function clean(text) {
 
  
    }
+   if(cmd === `${prefix}announce`){
+	   let user = message.guild.member(message.mentions.users.first());
+	   let content = args.join(" ");
+	   if(!message.author.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
+	   var embed = new Discord.RichEmbed()
+	   .setAuthor(bot.user.username, bot.user.avatarURL)
+	   .setDescription(content)
+	   .setFooter(message.author.username)
+	   .setColor("0x26cc7e");
+	   let channel = message.guild.channels.find('id', "544818063107686420");
+	   await channel.send(embed)
+	   message.channel.send("✅ || **Informace odeslána!**")
+	   return;
+   }
 });
    
    
