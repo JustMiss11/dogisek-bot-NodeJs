@@ -574,10 +574,10 @@ function clean(text) {
    if(cmd === `${prefix}announce`){
       if(args[0] == "everyone"){
 	  // let user = message.guild.member(message.mentions.users.first());
-	   let content = args.join(" ");
+	   let content = args.join(" ").slice(9);
 	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
 	   var embed = new Discord.RichEmbed()
-	   .setAuthor(bot.username, bot.avatarURL)
+	   .setAuthor("G A L A X Y Core")
 	   .setDescription(content)
 	   .setFooter(message.author.username)
 	   .setColor("0x26cc7e");
