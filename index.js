@@ -604,9 +604,9 @@ function clean(text) {
    }
    if(cmd === `${prefix}test`){
 	   var msgID = ''
-	   let r1 = "🗑";
+	   
 	   let msg= message.channel.send("Lol")
-	   msg.addReaction(r1);
+	   msg.react('🗑')
 	   msgID += message.id
 	   
    }
