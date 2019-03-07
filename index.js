@@ -387,7 +387,7 @@ bot.on("message", async message => {
             //  if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
               if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
-              await(user.addRole(SuspendRole.id));
+              await(user1.addRole(SuspendRole.id));
               db.add(`susp_${wUser.id}`, 1)
 	       
               var embed = new Discord.RichEmbed()
