@@ -377,7 +377,7 @@ bot.on("message", async message => {
               let AT4 = message.guild.roles.find('name', "►-Helper");
               let AT5 = message.guild.roles.find('name', "►-Support Team");
               let AT6 = message.guild.roles.find('name', "►-Moderátor");
-	      let user = message.mentions.users.first();
+	      var wUser = message.mentions.users.first() || bot.users.get(args[0]);
               let suspendT = args[1];
               
               if(!user) return message.channel.send(":x: || **Zadej člověka**");
