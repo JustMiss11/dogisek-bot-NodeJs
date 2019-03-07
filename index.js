@@ -576,7 +576,7 @@ function clean(text) {
 	   let content = args.join(" ");
 	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
 	   var embed = new Discord.RichEmbed()
-	   .setAuthor(bot.user.username, bot.user.avatarURL)
+	   .setAuthor(bot.username, bot.avatarURL)
 	   .setDescription(content)
 	   .setFooter(message.author.username)
 	   .setColor("0x26cc7e");
