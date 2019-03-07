@@ -574,7 +574,7 @@ function clean(text) {
    if(cmd === `${prefix}announce`){
 	   let user = message.guild.member(message.mentions.users.first());
 	   let content = args.join(" ");
-	   if(!message.author.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
+	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
 	   var embed = new Discord.RichEmbed()
 	   .setAuthor(bot.user.username, bot.user.avatarURL)
 	   .setDescription(content)
