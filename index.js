@@ -610,7 +610,7 @@ function clean(text) {
 	   
    }
 });
-boton('messageReactionAdd', async (reaction, user, message) => {
+bot.on('messageReactionAdd', async (reaction, user, message) => {
 	if(user.id !== bot.user.id && reaction.emoji.name === "🗑" && reaction.message.id === msgID){
            reaction.message.delete()
            message.delete()
