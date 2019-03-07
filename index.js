@@ -572,10 +572,13 @@ function clean(text) {
  
    }
    if(cmd === `${prefix}announce`){
-      if(args[0] == "everyone"){
-	  // let user = message.guild.member(message.mentions.users.first());
 	   let content = args.join(" ").slice(9);
 	   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
+	   
+      if(args[0] == "everyone"){
+	  // let user = message.guild.member(message.mentions.users.first());
+	  // let content = args.join(" ").slice(9);
+	  // if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply(":x: || **Nemáš BAN MEMBERS pravomoc!**")
 	   var embed = new Discord.RichEmbed()
 	   .setAuthor("G A L A X Y Core")
 	   .setDescription(content)
