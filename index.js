@@ -556,7 +556,9 @@ bot.on("message", async message => {
     } catch (e) {
       let error = clean(e);
       const m = await message.channel.send(embed);
+      
     }
+     
 
 }
 
@@ -600,6 +602,19 @@ function clean(text) {
       message.channel.send("✅ || **Informace odeslána!**")
       return;
    }
+   if(cmd === `${prefix}test`){
+	   let msgID = ' ';
+	   let r1 = "🗑";
+	   let msg= message.channel.send("Lol")
+	   msgID += message.id
+	   
+   }
+});
+boton('messageReactionAdd', async (reaction, user, message) => {
+	if(user.id !== bot.user.id && reaction.emoji.name === "🗑" && reaction.message.id === msgID){
+           reaction.message.delete()
+           message.delete()
+        }
 });
    
    
