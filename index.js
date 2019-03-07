@@ -59,7 +59,7 @@ bot.on("message", async message => {
        let args = messageArray.slice(1);
        let content = message.content;
        let author1 = message.author.username;
-       let user = message.mentions.users.first();
+       let user = message.mentions.users.first() || message.author;
        let reason = args.join(" ").slice(0);
        //ping
        if(cmd === `${prefix}PING`.toLowerCase ()) {
@@ -415,14 +415,15 @@ bot.on("message", async message => {
        if(cmd === `${prefix}data`){
 	      
               if(args[0] == "warns"){
-		      let user = message.mentions.users.first();
+		      let user = message.mentions.users.first() || message.author;
                       let warns = db.fetch(`warns_${user.id}`);
-		      if(!user) user = message.author;
+		     // if(!user) user = message.author;
 			      var embed = new Discord.RichEmbed()
 			      .setAuthor(message.author.username)
 			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
                               .setColor("0xe57e24");
 			      message.channel.send(embed)
+		      return;
                       }
                      
                      
