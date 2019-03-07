@@ -605,10 +605,10 @@ function clean(text) {
    if(cmd === `${prefix}test`){
 	   var msgID = ''
 	   let r1 = "🗑";
-	   let message11 = message.channel.send("Lol")
-	   await message11.react(r1)
-	   msgID += message.id
-	   
+	   message.channel.send("Lol").then(async message11 => {
+	     await message11.react(r1)
+	     msgID += message.id
+	   }
    }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
