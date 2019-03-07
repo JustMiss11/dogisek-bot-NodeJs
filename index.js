@@ -380,14 +380,15 @@ bot.on("message", async message => {
               let suspendT = args[1];
               
               if(!user) return message.channel.send(":x: || **Zadej člověka**");
-           
+             // db.add(`warns_${wUser.id}`, 1)
               if(!suspendT) return message.reply("❌ || **Zadej čas!**");
 
             //  if(!reason1) return message.channel.send(":x: || **Zadej dúvod!**");
               if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("❌ || **Nemúžeš tento příkaz použít!**");
               
               await(user.addRole(SuspendRole.id));
-              
+              db.add(`susp_${wUser.id}`, 1)
+	       
               var embed = new Discord.RichEmbed()
               .setColor("RED")
               .setAuthor("Suspend log")
@@ -417,24 +418,35 @@ bot.on("message", async message => {
               if(args[0] == "warns"){
 		      let user = message.mentions.users.first() || message.author;
                       let warns = db.fetch(`warns_${user.id}`);
+		    //  let susp = db.fetch(`susp_${user.id}`);
 		     // if(!user) user = message.author;
 			      var embed = new Discord.RichEmbed()
 			      .setAuthor(message.author.username)
 			      .addField("Tvá varování:", `${warns? `${warns}` : '0'}`)
+			    //  .addField("Tvé suspenze:", `${susp? `${susp}` : '0'}`)
                               .setColor("0xe57e24");
 			      message.channel.send(embed)
 		      return;
                       }
-                     
-                     
-			     
+              if(args[0] == "suspensions"){
+		     // let susp = db.fetch(`susp_${user.id}`);
+		      let user = message.mentions.users.first() || message.author;
+                      let susp = db.fetch(`susp_${user.id}`);
+			
+		      var embed = new Discord.RichEmbed()
+		      .setAuthor(message.author.username)
+		      .addField("Tvé suspenze", `${susp? `${susp}` : '0'}`)
+		      .setColor("0xe57e24");
+		      message.channel.send(embed)
+		      return;
+             }
 		  
                  
               
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
               .setColor("BLUE")
-              .setDescription("Použití: `>data <data typ>` \n Data: \n `warns`");
+              .setDescription("Použití: `>data <data typ>` \n Data: \n `warns` \n `suspensiond`");
               message.channel.send(embed)
               return;
             
