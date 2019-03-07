@@ -605,8 +605,8 @@ function clean(text) {
    if(cmd === `${prefix}test`){
 	   var msgID = ''
 	   let r1 = "🗑";
-	   let msg= message.channel.send("Lol")
-	   await msg.react(r1)
+	   let message11 = message.channel.send("Lol")
+	   await message11.react(r1)
 	   msgID += message.id
 	   
    }
