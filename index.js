@@ -824,6 +824,7 @@ function play(guild, song) {
 		queue.delete(guild.id);
 		return;
 	}
+}
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
 	if(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
