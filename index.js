@@ -15,7 +15,7 @@ const ms = require("ms");
 const Discord = require("discord.js");
 const prefix = ">";
 const db = require("quick.db");
-const bot = new Discord.Client();
+const bot = new Discord.Client(); // RELOAD
 //reload
 bot.on("ready", () => {
        console.log(`${bot.user.username} is online`)
