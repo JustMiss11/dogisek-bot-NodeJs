@@ -23,7 +23,7 @@ bot.on("ready", () => {
         bot.user.setStatus("idle"); //online, idle, dnd
     }, 5000)
 }); 
-
+//RELOAD
 bot.on("guildMemberAdd", member => {
        let user = member
        let channel = member.guild.channels.find('name', "👋log");
