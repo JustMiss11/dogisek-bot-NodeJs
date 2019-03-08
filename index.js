@@ -443,7 +443,7 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor("Data")
               .setColor("BLUE")
-              .setDescription("Použití: `>data <data typ>` \n Data: \n `warns` \n `suspensiond`");
+              .setDescription("Použití: `>data <data typ>` \n Data: \n `warns` \n `suspensions`");
               message.channel.send(embed)
               return;
             
