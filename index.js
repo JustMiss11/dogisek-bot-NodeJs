@@ -115,7 +115,7 @@ bot.on("message", async message => {
               .addField("😅 Fun (1)", "`meme`")
               .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
               .addField("🙂 General (6)", "`report`, `user`, `server`, `cat`, `dog`, `data`")
-	      .addField("♪♪Music (6)", "`play`, `pause`, `resume`, `np/now-playing`, `skip`, `leave`)
+	      .addField("♪♪Music (6)", "`play`, `pause`, `resume`, `np/now-playing`, `skip`, `leave`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
