@@ -28,7 +28,8 @@
     "request": "^2.88.0",
     "simple-youtube-api": "^5.0.2",
     "youtube-info": "^1.2.0",
-    "ytdl-core": "^0.21.1",
+    "ytdl-core": "^0.7.17",
+    "youtube-search": "^1.0.6",
     "superagent": "^3.8.3",
     "moment": "2.15.2",
     "moment-duration-format": "1.3.0",
@@ -40,7 +41,7 @@
     "better-sqlite-pool": "^0.2.0",
     "node-opus": "0.2.7",
     "opusscript": "0.0.6",
-    "ytdl-core": "0.20.2",
+    
     "simple-youtube-api": "5.0.1",
     "gcc": "1.0.2",
     "ffmpeg": "0.0.4",
