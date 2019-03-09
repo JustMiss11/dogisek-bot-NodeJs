@@ -633,15 +633,27 @@ function clean(text) {
           }
    }
    if(cmd === `${prefix}boobs`){
-	   if (message.channel.nsfw === true) {
-              superagent.get('https://nekobot.xyz/api/image')
-              .query({ type: 'boobs'})
-              .end((err, response) => {
-              message.channel.send({ file: response.body.message });
-              });
-          } else {
-             message.channel.send(":x: || Toto není NSFW channel.")
-          }
+	   let reddit = ["boobs", 
+               "tits",
+               "animeboobs",
+               "animetits"
+                       
+                      
+                       
+          ]
+
+          let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
+
+// message.channel.startTyping(); 
+
+          randomPuppy(subreddit).then(async url => {
+                    await message.channel.send({
+                            files: [{ 
+                                  attachment: url, 
+                                  name: 'boobs.png' 
+                            }]           
+                     })//then(() => message.channel.stopTyping()); 
+      }).catch(err => console.error(err)); 
    }
    if(cmd === `${prefix}ass`){
 	   if (message.channel.nsfw === true) {
