@@ -4,6 +4,8 @@ const ms = require("ms");
 const Discord = require("discord.js");
 const prefix = ">";
 const db = require("quick.db");
+const ytdl = require("ytdl-core");
+const search = require("youtube-search");
 const bot = new Discord.Client();
 //reload
 bot.on("ready", () => {
@@ -683,6 +685,70 @@ function clean(text) {
                 message.channel.send(lewdembed);
             });
    }
+   if(cmd === `${prefix}play`){
+	   if (!bot.voiceConnections.get('server', message.server)) {
+           if (!message.author.voiceChannel) return bot.sendMessage(message, 'Musíš být ve Voice Channelu.')
+           bot.joinVoiceChannel(message.author.voiceChannel)
+           }
+           let suffix = message.content.split(" ").slice(1).join(" ")
+           if (!suffix) return bot.sendMessage(message, 'Zadej URL nebo Název písničky.')
+           play(message, getQueue(message.server.id), suffix)
+           
+   }
+   if(cmd === `${prefix}clean`){
+	  // if(message.server.owner.id == message.author.id || message.author.id == config.owner_id || config.admins.indexOf(message.author.id) != -1 || message.server.permissionsOf(message.author).hasPermission('MANAGE_SERVER')){
+           let queue = getQueue(message.server.id);
+           if(queue.length == 0) return bot.sendMessage(message, `Žádná muzika v queue`);
+           for(var i = queue.length - 1;  i >= 0; i--){
+                queue.splice(i, 1);
+           }
+           bot.sendMessage(message, `Vyčištěno!`)
+         // }else{
+          //  bot.sendMessage(message, 'Only the admins can do this command');
+          
+   }
+   if(cmd === `${prefix}skip`){
+	  // if(message.server.owner.id == message.author.id || message.author.id == config.owner_id || config.admins.indexOf(message.author.id) != -1 || message.server.permissionsOf(message.author).hasPermission('MANAGE_SERVER')){
+           let player = bot.voiceConnections.get('server', message.server);
+            if(!player || !player.playing) return bot.sendMessage(message, 'Však nic nehraju ty debílku :smile:');
+            player.stopPlaying()
+            bot.sendMessage(message, 'Přeskakuju písničku <:thinksUp:545246334647664681>');
+         // }else{
+         //   bot.sendMessage(message, ');
+        //  }
+   }
+   if(cmd === `${prefix}pause`){
+	 // if(message.server.owner.id == message.author.id || message.author.id == config.owner_id || config.admins.indexOms/e.author.id) != -1){
+           let player = bot.voiceConnections.get('server', message.server);
+           if(!player || !player.playing) return bot.sendMessage(message, 'Co? Nic nehraju?');
+           player.pause();
+           bot.sendMessage(message, "Pozastavuji písničku.");
+           
+   }
+   if(cmd === `${prefix}resume`){
+	  // if (message.content.startsWith(prefix + 'resume')) {
+           //  if(message.server.owner.id == message.author.id || message.author.id == config.owner_id || config.admins.indexOf(message.author.id) != -1){
+             let player = bot.voiceConnections.get('server', message.server);
+             if(!player) return bot.sendMessage(message, 'Právě žádná muzika nehraje.');
+             if( player.playing) return bot.sendMessage(message, 'Muzika už dávno hraje.);
+             player.resume();
+             bot.sendMessage(message, "Spouštím...");
+   }
+   if (message.content.startsWith(prefix + 'np') || message.content.startsWith(prefix + 'nowplaying')) {
+    let queue = getQueue(message.server.id);
+    if(queue.length == 0) return bot.sendMessage(message, "Nic nehraje.");
+    bot.sendMessage(message, `${rb}xl\nCurrently playing: ${queue[0].title} | by ${queue[0].requested}${rb}`);
+}
+
+if (message.content.startsWith(prefix + 'queue')) {
+    let queue = getQueue(message.server.id);
+    if(queue.length == 0) return bot.sendMessage(message, "Žádná muzika v Queue");
+    let text = '';
+    for(let i = 0; i < queue.length; i++){
+      text += `${(i + 1)}. ${queue[i].title} | by ${queue[i].requested}\n`
+    };
+    bot.sendMessage(message, `${rb}xl\n${text}${rb}`);
+  }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
 	if(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
