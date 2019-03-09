@@ -610,7 +610,7 @@ function clean(text) {
 	   })
    }
    if(cmd === `${prefix}4k`){
-	   if (msg.channel.nsfw === true) {
+	   if (message.channel.nsfw === true) {
               superagent.get('https://nekobot.xyz/api/image')
               .query({ type: '4k'})
               .end((err, response) => {
