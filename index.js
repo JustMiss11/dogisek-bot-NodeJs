@@ -100,6 +100,7 @@ bot.on("message", async message => {
               .addField("😅 Fun (1)", "`meme`")
               .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
               .addField("🙂 General (6)", "`report`, `user`, `server`, `cat`, `dog`, `data`")
+	      .addField("🔞NSFW (5)", "`boobs`, `anal`, `4k`, `hentai`, `ass`")
               .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
               .setFooter("Dogisek Bot © 2019");
               message.channel.send(embed).then(async msg =>{
@@ -634,7 +635,7 @@ function clean(text) {
    if(cmd === `${prefix}boobs`){
 	   if (message.channel.nsfw === true) {
               superagent.get('https://nekobot.xyz/api/image')
-              .query({ type: 'tits'})
+              .query({ type: 'boobs'})
               .end((err, response) => {
               message.channel.send({ file: response.body.message });
               });
