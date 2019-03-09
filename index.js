@@ -398,13 +398,13 @@ bot.on("message", async message => {
               .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
-              user.removeRole(AT1.id);
-              await user.removeRole(AT2.id);
-              await user.removeRole(AT3.id);
-              await user.removeRole(AT4.id);
-              await user.removeRole(AT5.id);
-              await user.removeRole(AT6.id);
-	      await user.removeRole(AT7.id);
+              user.removeRole(AT1);
+              await user.removeRole(AT2);
+              await user.removeRole(AT3);
+              await user.removeRole(AT4);
+              await user.removeRole(AT5);
+              await user.removeRole(AT6);
+	      await user.removeRole(AT7);
               await message.channel.send("✅ || **" + user + " byl suspendován!**");
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
