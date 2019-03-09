@@ -686,7 +686,7 @@ function clean(text) {
             });
    }
    if(cmd === `${prefix}play`){
-	   if (!bot.voiceConnections.get('server', message.server)) {
+	   if (!bot.voiceConnection.get('server', message.server)) {
            if (!message.author.voiceChannel) return bot.sendMessage(message, 'Musíš být ve Voice Channelu.')
            bot.joinVoiceChannel(message.author.voiceChannel)
            }
