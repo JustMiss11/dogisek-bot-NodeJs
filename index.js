@@ -1,3 +1,4 @@
+const superagent = require("superagent");
 const randomPuppy = require("random-puppy");
 const ms = require("ms");
 const Discord = require("discord.js");
@@ -607,6 +608,64 @@ function clean(text) {
 	     await message11.react(r1)
 	     msgID += message.id
 	   })
+   }
+   if(cmd === `${prefix}4k`){
+	   if (msg.channel.nsfw === true) {
+              superagent.get('https://nekobot.xyz/api/image')
+              .query({ type: '4k'})
+              .end((err, response) => {
+              message.channel.send({ file: response.body.message });
+              });
+          } else {
+              message.channel.send(":x: || Toto není NSFW channel.!")
+          }
+   }
+   if(cmd === `${prefix}anal`){
+	   if (message.channel.nsfw === true) {
+              superagent.get('https://nekobot.xyz/api/image')
+              .query({ type: 'anal'})
+              .end((err, response) => {
+              message.channel.send({ file: response.body.message });
+              });
+          } else {
+             message.channel.send(":x: || Toto není NSFW channel!")
+          }
+   }
+   if(cmd === `${prefix}boobs`){
+	   if (message.channel.nsfw === true) {
+              superagent.get('https://nekobot.xyz/api/image')
+              .query({ type: 'tits'})
+              .end((err, response) => {
+              message.channel.send({ file: response.body.message });
+              });
+          } else {
+             message.channel.send(":x: || Toto není NSFW channel.")
+          }
+   }
+   if(cmd === `${prefix}ass`){
+	   if (message.channel.nsfw === true) {
+              superagent.get('https://nekobot.xyz/api/image')
+              .query({ type: 'ass'})
+              .end((err, response) => {
+              message.channel.send({ file: response.body.message });
+              });
+          } else {
+             message.channel.send(":x: || Toto není NSFW channel.!")
+          }
+   }
+   if(cmd === `${prefix}hentai`){
+	   if (!message.channel.nsfw) return message.channel.send(":x: || Prosím používej tento příkaz jen v NSFW channelech.");
+         // return 
+           superagent.get('https://nekos.life/api/v2/img/hentai')
+             .end((err, response) => {
+                var lewdembed = new Discord.RichEmbed()
+                    .setTitle(`Hentai`)
+                    .setImage(response.body.url)
+                    .setColor("RANDOM")
+                    .setFooter("DS Core", bot.user.displayAvatarURL)
+                    .setTimestamp();
+                message.channel.send(lewdembed);
+            });
    }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
