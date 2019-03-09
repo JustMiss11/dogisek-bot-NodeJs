@@ -730,7 +730,7 @@ function clean(text) {
            //  if(message.server.owner.id == message.author.id || message.author.id == config.owner_id || config.admins.indexOf(message.author.id) != -1){
              let player = bot.voiceConnections.get('server', message.server);
              if(!player) return bot.sendMessage(message, 'Právě žádná muzika nehraje.');
-             if( player.playing) return bot.sendMessage(message, 'Muzika už dávno hraje.);
+             if( player.playing) return bot.sendMessage(message, 'Muzika už dávno hraje.');
              player.resume();
              bot.sendMessage(message, "Spouštím...");
    }
