@@ -662,7 +662,7 @@ function clean(text) {
                     .setTitle(`Hentai`)
                     .setImage(response.body.url)
                     .setColor("RANDOM")
-                    .setFooter("DS Core", //displayAvatarURL)
+                    .setFooter("DS Core", /*/isplayAvatarURL*/)
                     .setTimestamp();
                 message.channel.send(lewdembed);
             });
