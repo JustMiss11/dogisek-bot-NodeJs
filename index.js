@@ -633,9 +633,12 @@ function clean(text) {
           }
    }
    if(cmd === `${prefix}boobs`){
+	   if(!message.channel.nsfw) return message.reply("Používej tento příkaz pouze v NSFW roomkách.")
 	   let reddit = ["boobs", 
                "tits",
                "animeboobs",
+               "bigBoobs",
+			 
                "animetits"
                        
                       
