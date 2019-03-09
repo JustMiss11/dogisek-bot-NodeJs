@@ -686,10 +686,10 @@ function clean(text) {
             });
    }
    if(cmd === `${prefix}play`){
-	   if (!bot.voiceConnection.get('server', message.server)) {
+	 //  if (!bot.voiceConnection.get('server', message.server)) {
            if (!message.author.voiceChannel) return bot.sendMessage(message, 'Musíš být ve Voice Channelu.')
            bot.joinVoiceChannel(message.author.voiceChannel)
-           }
+        //   }
            let suffix = message.content.split(" ").slice(1).join(" ")
            if (!suffix) return bot.sendMessage(message, 'Zadej URL nebo Název písničky.')
            play(message, getQueue(message.server.id), suffix)
