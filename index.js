@@ -367,14 +367,14 @@ bot.on("message", async message => {
             //  let suspendT = args[1];
            //   let reason1 = args[2];
               let SuspendRole = message.guild.roles.find('name', "►-Suspended");
-              let AT1 = message.guild.roles.find('id', "544863807521030164");               //<@&544863807521030164> <@&544864311076585515> <@&551038392746377237> <@&544549074494291997> <@&548787756348997632> <@&544547020732497920> <@&544548014128365580> <@&>
-              let AT2 = message.guild.roles.find('id', "544864311076585515");
-              let AT3 = message.guild.roles.find('id', "551038392746377237");
+              let AT1 = message.guild.roles.find('name', "⅀ Sᴘᴏʟᴜᴍᴀᴊɪᴛᴇʟ");               //<@&544863807521030164> <@&544864311076585515> <@&551038392746377237> <@&544549074494291997> <@&548787756348997632> <@&544547020732497920> <@&544548014128365580> <@&>
+              let AT2 = message.guild.roles.find('name', "⅀ Sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ");
+              let AT3 = message.guild.roles.find('name', "⅀ ʜᴇʟᴘᴇʀ");
               
-              let AT4 = message.guild.roles.find('id', "544549074494291997");
-              let AT5 = message.guild.roles.find('id', "548787756348997632");
-              let AT6 = message.guild.roles.find('id', "544547020732497920");
-	      let AT7 = message.guild.roles.find('id', "544548615503347752");
+              let AT4 = message.guild.roles.find('name', "⅀ ᴀᴅᴍɪɴɪsᴛʀáᴛᴏʀ");
+              let AT5 = message.guild.roles.find('name', "⅀ ᴍᴀɴᴀžᴇʀ");
+              let AT6 = message.guild.roles.find('name', "⅀ ᴍᴏᴅᴇʀáᴛᴏʀ");
+	      let AT7 = message.guild.roles.find('name', "⅀ ᴠᴇᴅᴇɴí");
 	      var wUser = message.guild.member(message.mentions.users.first() || bot.users.get(args[0]));
               let suspendT = args[1];
               
@@ -398,13 +398,13 @@ bot.on("message", async message => {
               .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
-              user.removeRole(AT1);
-              await user.removeRole(AT2);
-              await user.removeRole(AT3);
-              await user.removeRole(AT4);
-              await user.removeRole(AT5);
-              await user.removeRole(AT6);
-	      await user.removeRole(AT7);
+              user.removeRole(AT1.id);
+              await user.removeRole(AT2.id);
+              await user.removeRole(AT3.id);
+              await user.removeRole(AT4.id);
+              await user.removeRole(AT5.id);
+              await user.removeRole(AT6.id);
+	      await user.removeRole(AT7.id);
               await message.channel.send("✅ || **" + user + " byl suspendován!**");
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
