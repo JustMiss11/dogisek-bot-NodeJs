@@ -26,7 +26,7 @@ bot.on("ready", () => {
 //RELOAD
 bot.on("guildMemberAdd", member => {
        let user = member
-       let channel = member.guild.channels.find('name', "👋log");
+       let channel = member.guild.channels.find('id', "544818675157434368");
        let avatar = member.user.avatarURL;
        
        var embed = new Discord.RichEmbed()
@@ -39,7 +39,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on("guildMemberRemove", member => {
        let user = member
-       let channel = member.guild.channels.find('name', "👋log");
+       let channel = member.guild.channels.find('id', "544818675157434368");
        let avatar = member.user.avatarURL;
        
        var embed = new Discord.RichEmbed()
@@ -261,7 +261,7 @@ bot.on("message", async message => {
      //   .setFooter(`Log od: ${author1}`)
       //  .setTimeStamp()
       //  .setColor('GREEN');
-        let logC = message.guild.channels.find('name', "🤖galaxy-core-updates");
+        let logC = message.guild.channels.find('id', "551906091160567813");
         logC.send({embed:{
                "author":{
                       "name": message.guild.name
@@ -367,13 +367,14 @@ bot.on("message", async message => {
             //  let suspendT = args[1];
            //   let reason1 = args[2];
               let SuspendRole = message.guild.roles.find('name', "►-Suspended");
-              let AT1 = message.guild.roles.find('name', "►-Vedení");               //►-Vedení  ►-Administrátor  ►-Manažer  ►-Helper  ►-Support Team  ►-Moderátor 
-              let AT2 = message.guild.roles.find('name', "►-Administrátor");
-              let AT3 = message.guild.roles.find('name', "►-Manažer");
+              let AT1 = message.guild.roles.find('id', "544863807521030164");               //<@&544863807521030164> <@&544864311076585515> <@&551038392746377237> <@&544549074494291997> <@&548787756348997632> <@&544547020732497920> <@&544548014128365580> <@&>
+              let AT2 = message.guild.roles.find('id', "544864311076585515");
+              let AT3 = message.guild.roles.find('id', "551038392746377237");
               
-              let AT4 = message.guild.roles.find('name', "►-Helper");
-              let AT5 = message.guild.roles.find('name', "►-Support Team");
-              let AT6 = message.guild.roles.find('name', "►-Moderátor");
+              let AT4 = message.guild.roles.find('id', "544549074494291997");
+              let AT5 = message.guild.roles.find('id', "548787756348997632");
+              let AT6 = message.guild.roles.find('id', "544547020732497920");
+	      let AT7 = message.guild.roles.find('id', "544548615503347752");
 	      var wUser = message.guild.member(message.mentions.users.first() || bot.users.get(args[0]));
               let suspendT = args[1];
               
@@ -403,6 +404,7 @@ bot.on("message", async message => {
               await user.removeRole(AT4.id);
               await user.removeRole(AT5.id);
               await user.removeRole(AT6.id);
+	      await user.removeRole(AT7.id);
               await message.channel.send("✅ || **" + user + " byl suspendován!**");
               setTimeout(function(){
                      user.removeRole(SuspendRole.id);
