@@ -610,7 +610,7 @@ function clean(text) {
 	   let r1 = "🗑";
 	   message.channel.send("Lol").then(async message11 => {
 	     await message11.react(r1)
-             await get_message_id(message);
+           //  await get_message_id(message);
 	     msgID += message.id
 	   })
    }
@@ -769,12 +769,12 @@ if (message.content.startsWith(prefix + 'queue')) {
   }
 });
 
-function get_msg_id(message) {
-    id = message.id;
+//function get_msg_id(message) {
+ //   id = message.id;
 }
 bot.on("messageReactionAdd", (message) => {
     if(message.emoji.name == "🗑") {
-        message.reaction.delete();
+        message.delete();
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
