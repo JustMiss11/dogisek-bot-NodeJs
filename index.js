@@ -765,7 +765,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	
   }
 });
-bot.on('messageReactionAdd', async (reaction, user, message) => {
+bot.on('messageReactionAdd', async (reaction, user, message, member) => {
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
           // message.delete()
