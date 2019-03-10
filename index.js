@@ -774,7 +774,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 
 bot.on("messageReactionAdd", (message) => {
     if(message.emoji.name == "🗑") {
-        message.delete();
+        message.channel.delete();
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
