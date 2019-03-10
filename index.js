@@ -445,7 +445,7 @@ bot.on("message", async message => {
 		      return;
              }
              if(args[0] == "oceneni"){
-		     let user = message.mentions.users.first();
+		     let user = message.mentions.users.first() || message.author;
 		     let reason = db.fetch(`reason_${user.id}`);
 		     let oceneni = db.fetch(`oceneni_${user.id}`);
 		     
