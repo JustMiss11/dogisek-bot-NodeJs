@@ -776,7 +776,7 @@ bot.on("messageReactionAdd", (message) => {
     if(message.reaction.emoji.name == "🗑") {
         message.reaction.delete();
     }
-}
+});
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
           // message.delete()
@@ -784,8 +784,8 @@ bot.on("messageReactionAdd", (message) => {
 	//.id != member.id) return;
     // (reaction.emoji.name == '🗑' && !user.bot) {
 	    //reaction.message.delete()
-    }
-});
+    
+
    
 
        
