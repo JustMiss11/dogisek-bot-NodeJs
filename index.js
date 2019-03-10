@@ -749,6 +749,21 @@ if (message.content.startsWith(prefix + 'queue')) {
     };
     bot.sendMessage(message, `${rb}xl\n${text}${rb}`);
   }
+  if(cmd === `${prefix}suggest`) {
+	  let owner = message.guild.members.find('id', "342364288310312970");
+	  let message1 = args.join(" ").slice(8);
+	  if(!message1) return message.author.send(":x: | **Prosím zadej nějakou novou věc co bys chtěl na mě vidě.**");
+	  
+	  var embed = new Discord.RichEmbed()
+	  .setAuthor("Nová suggesce.", message.author.avatarURL)
+	  .setDescription("Máte tu 1 novou suggesci.\n" + message1)
+	  .setColor("GREEN")
+	  .setFooter(`Suggesce od: ${message.author} |`)
+	  .setTimestamp()
+	  owner.send(embed)
+	  return;
+	
+  }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
 	if(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
