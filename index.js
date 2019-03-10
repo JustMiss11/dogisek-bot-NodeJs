@@ -444,7 +444,17 @@ bot.on("message", async message => {
 		      message.channel.send(embed)
 		      return;
              }
-		  
+             if(args[0] == "oceneni"){
+		     let user = message.mentions.users.first();
+		     let reason = db.fetch(`reason_${user.id}`);
+		     let oceneni = db.fetch(`oceneni_${user.id}`);
+		     
+		     var embed = nee Discord.RichEmbed()
+		     .setAuthor(user.username)
+		     .setDescription(`Tvé ocenění: \nPočet: ${oceneni? `${oceneni}` : '0'} \n Ocenění za: **${reason ? `${reason}` : '** Žádná ocenění');
+		     message.channel.send(embed)
+		     return;
+	     }
                  
               
               var embed = new Discord.RichEmbed()
@@ -779,7 +789,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  var succes = new Discord.RichEmbed()
 	  .setAuthor(message.guild.displayName)
 	  .setColor("GREEN")
-	  .setDescription("Hráčovy <@" + ${wUser.id} + "> bylo předáno ocenění " + ${reason} + "!")
+	  .setDescription(`Hráčovy <@${wUser.id}> bylo předáno ocenění ${reason}!`)
 	  .setTimestamp();
 	  message.channel.send(succes)
   }
