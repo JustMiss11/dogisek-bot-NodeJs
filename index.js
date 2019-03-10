@@ -500,7 +500,7 @@ bot.on("message", async message => {
              .addField("Owner", message.guild.owner)
              .addField("Owner ID", message.guild.owner.id)
 
-             .setIcon(message.guild.iconURL);
+             .setImage(message.guild.iconURL);
 
              message.channel.send(serverinfo);
        }
