@@ -772,15 +772,18 @@ if (message.content.startsWith(prefix + 'queue')) {
 function get_msg_id(message) {
     id = message.id;
 }
-
-bot.on('messageReactionAdd', async (reaction, user, message, member) => {
+bot.on("messageReactionAdd", (message) => {
+    if(message.reaction.emoji.name == "🗑") {
+        message.reaction.delete();
+    }
+}
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
           // message.delete()
         //}
-	if (user.id != member.id) return;
-    if (reaction.emoji.name == '🗑' && !user.bot) {
-	    reaction.message.delete()
+	//.id != member.id) return;
+    // (reaction.emoji.name == '🗑' && !user.bot) {
+	    //reaction.message.delete()
     }
 });
    
