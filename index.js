@@ -766,12 +766,15 @@ if (message.content.startsWith(prefix + 'queue')) {
   }
 });
 bot.on('messageReactionAdd', async (reaction, user, message) => {
-	if(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
-           reaction.message.delete()
-           message.delete()
-        }
+	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
+        //   reaction.message.delete()
+          // message.delete()
+        //}
+	if (user.id != member.id) return;
+    if (reaction.emoji.name == '🗑' && !user.bot) {
+	    reaction.message.delete()
+    }
 });
-   
    
 
        
