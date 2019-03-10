@@ -767,6 +767,22 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  return;
 	
   }
+  if(cmd === `${prefix}load`){
+	  message.channel.send("L");//.then(message => {
+		  
+	          await message.edit("L O");
+          //}.then(message => {
+	          await message.edit("L O A");
+         // }.then(message => {
+	          await message.edit("L O A D");
+	 // }.then(message => {
+	          await message.edit("L O A D I");
+         // }.then(message => {
+	          await message.edit("L O A D I N");
+         // }.then(message =>{
+	          await message.edit("L O A D I N G");
+          //};
+  }
 });
 
 //function get_msg_id(message) {
