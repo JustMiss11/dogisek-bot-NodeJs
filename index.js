@@ -779,6 +779,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	
   }
   if(cmd === `${prefix}ocenit`){
+	  if(!message.member.hasPermissions("ADMINISTRATOR")) return message.reply("Né né ne.. Pouze role s Administrátor pravomocí mohou udělovat ocenění!");
 	  let wUser = message.guild.member(message.mentions.users.first());
 	  if(!wUser) return message.channel.send("Prosím zadej člověka kterého chceš ocenit.");
 	 // if(wUser.id == message.author.id) return message.channel.send("Nemůžeš si sám předat ocenení.");
