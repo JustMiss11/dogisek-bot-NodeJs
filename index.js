@@ -490,7 +490,7 @@ bot.on("message", async message => {
              .addField("Owner", message.guild.owner)
              .addField("Owner ID", message.guild.owner.id)
 
-             .setThumbnail(message.guild.iconURL);
+             .setIcon(message.guild.iconURL);
 
              message.channel.send(serverinfo);
        }
@@ -767,21 +767,21 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  return;
 	
   }
-  if(cmd === `${prefix}load`){
-	  let msg1 = message.channel.send("L");//.then(message => {
-		  
-	          await msg1.edit("L O");
-          //}.then(message => {
-	          await msg1.edit("L O A");
-         // }.then(message => {
-	          await msg1.edit("L O A D");
-	 // }.then(message => {
-	          await msg1.edit("L O A D I");
-         // }.then(message => {
-	          await msg1.edit("L O A D I N");
-         // }.then(message =>{
-	          await msg1.edit("L O A D I N G");
-          //};
+  if(cmd === `${prefix}ocenit`){
+	  let wUser = message.guild.member(message.mentions.users.first());
+	  if(!wUser) return message.channel.send("Prosím zadej člověka kterého chceš ocenit.");
+	 // if(wUser.id == message.author.id) return message.channel.send("Nemůžeš si sám předat ocenení.");
+	  let reason = args.join(" ").slice(0);
+	  db.add(`oceneni_${wUser.id}`, 1);
+	  db.push(`reason_${wUser.id}`, reason);
+	  if(!reason) return message.channel.send("Zadej ocenění.");
+	  
+	  var succes = new Discord.RichEmbed()
+	  .setAuthor(message.guild.displayName)
+	  .setColor("GREEN")
+	  .setDescription("Hráčovy <@" + ${wUser.id} + "> bylo předáno ocenění " + ${reason} + "!")
+	  .setTimestamp();
+	  message.channel.send(succes)
   }
 });
 
