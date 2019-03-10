@@ -773,7 +773,7 @@ function get_msg_id(message) {
     id = message.id;
 }
 bot.on("messageReactionAdd", (message) => {
-    if(message.reaction.emoji.name == "🗑") {
+    if(message.emoji.name == "🗑") {
         message.reaction.delete();
     }
 });
