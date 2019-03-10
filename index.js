@@ -768,19 +768,19 @@ if (message.content.startsWith(prefix + 'queue')) {
 	
   }
   if(cmd === `${prefix}load`){
-	  message.channel.send("L");//.then(message => {
+	  let msg1 = message.channel.send("L");//.then(message => {
 		  
-	          await message.edit("L O");
+	          await msg1.dit("L O");
           //}.then(message => {
-	          await message.edit("L O A");
+	          await msg1.edit("L O A");
          // }.then(message => {
-	          await message.edit("L O A D");
+	          await msg1.edit("L O A D");
 	 // }.then(message => {
-	          await message.edit("L O A D I");
+	          await msg1.edit("L O A D I");
          // }.then(message => {
-	          await message.edit("L O A D I N");
+	          await msg1.edit("L O A D I N");
          // }.then(message =>{
-	          await message.edit("L O A D I N G");
+	          await msg1.edit("L O A D I N G");
           //};
   }
 });
