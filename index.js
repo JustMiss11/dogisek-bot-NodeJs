@@ -62,7 +62,7 @@ bot.on("message", async message => {
        let args = messageArray.slice(1);
        let content = message.content;
        let author1 = message.author.username;
-       let user = message.mentions.users.first() || message.author;
+       let user1 = message.mentions.users.first() || message.author;
        let reason = args.join(" ").slice(0);
        //ping
        if(cmd === `${prefix}PING`.toLowerCase ()) {
@@ -117,7 +117,7 @@ bot.on("message", async message => {
        }
        //report
        if(cmd === `${prefix}report`){
-              if(!user) return message.channel.send({embed:{
+              if(!user1) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
                      },
@@ -140,7 +140,7 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor("Noví report", message.author.avatarURL)
               .setColor("RED")
-              .addField("Reportován:", user)
+              .addField("Reportován:", user1)
               .addField("Reportován od:", author1)
               .addField("Důvod:", reason);
               let channel = message.guild.channels.find('name', "logs");
@@ -282,7 +282,7 @@ bot.on("message", async message => {
        //ban
        if(cmd === `${prefix}ban`){
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
-              if(!user) return message.channel.send({embed:{
+              if(!user1) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
                      },
@@ -298,7 +298,7 @@ bot.on("message", async message => {
                      "color": 0x700606,
                      
               }});
-              if(user.hasPermissions("BAN_MEMBERS")) return message.channel.send({embed:{
+              if(user1.hasPermissions("BAN_MEMBERS")) return message.channel.send({embed:{
                      "author":{
                             "name": "Error"
                      },
@@ -311,7 +311,7 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " zabanoval/a")
                          
-              .addField("Zabanován/a:", user)
+              .addField("Zabanován/a:", user1)
               .addField("Zabanován/a od:", author1)
               .addField("Dúvod:", reason1)
               .setColor("RED")
@@ -325,7 +325,7 @@ bot.on("message", async message => {
        //KICK
        if(cmd === `${prefix}kick`){
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
-              if(!user) return message.channel.send({embed:{
+              if(!user1) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
                      },
@@ -342,7 +342,7 @@ bot.on("message", async message => {
                      "color": 0x700606,
                      
               }});
-              if(user.hasPermissions("KICK_MEMBERS")) return message.channel.send({embed:{
+              if(user1.hasPermissions("KICK_MEMBERS")) return message.channel.send({embed:{
                      "author":{
                             "name": "Error"
                      },
@@ -355,7 +355,7 @@ bot.on("message", async message => {
               var embed = new Discord.RichEmbed()
               .setAuthor(author1 + " kickul/a")
                          
-              .addField("Kicknut/a", user)
+              .addField("Kicknut/a", user1)
               .addField("Kicknut/a od:", author1)
               .addField("Dúvod:", reason1)
               .setColor("RED")
@@ -402,18 +402,18 @@ bot.on("message", async message => {
               .addField("Čas:", `${ms(ms(suspendT))}`);
               let logs = message.guild.channels.find('name', "logs");
               logs.send(embed);
-              user.removeRole(AT1.id);
-              await user.removeRole(AT2.id);
-              await user.removeRole(AT3.id);
-              await user.removeRole(AT4.id);
-              await user.removeRole(AT5.id);
-              await user.removeRole(AT6.id);
-	      await user.removeRole(AT7.id);
-              await message.channel.send("✅ || **" + user + " byl suspendován!**");
+              user1.removeRole(AT1.id);
+              await user1.removeRole(AT2.id);
+              await user1.removeRole(AT3.id);
+              await user1.removeRole(AT4.id);
+              await user1.removeRole(AT5.id);
+              await user1.removeRole(AT6.id);
+	      await user1.removeRole(AT7.id);
+              await message.channel.send("✅ || **" + user1 + " byl suspendován!**");
               setTimeout(function(){
-                     user.removeRole(SuspendRole.id);
+                     user1.removeRole(SuspendRole.id);
                      
-                     logs.send(`**<@${user.id}> byl unsuspendován!**`);
+                     logs.send(`**<@${user1.id}> byl unsuspendován!**`);
               }, ms(suspendT))
        }
        if(cmd === `${prefix}data`){
@@ -758,7 +758,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  .setAuthor("Nová suggesce.", message.author.avatarURL)
 	  .setDescription("Máte tu 1 novou suggesci.\n" + message1)
 	  .setColor("GREEN")
-	  .setFooter(`Suggesce od: ${message.author} |`)
+	  .setFooter(`Suggesce od: ${message.author.username} |`)
 	  .setTimestamp()
 	  owner.send(embed)
 	  return;
