@@ -451,7 +451,7 @@ bot.on("message", async message => {
 		     
 		     var embed = new Discord.RichEmbed()
 		     .setAuthor(user.username)
-		     .setColor("YELLOW")
+		     .setColor("0xe5c914")
 		     .setDescription(`Tvé ocenění: \nPočet: ${oceneni? `${oceneni}` : '0'} \n Ocenění za: ${reason ? `${reason}` : '** Žádná ocenění**'}`);
 		     message.channel.send(embed)
 		     return;
