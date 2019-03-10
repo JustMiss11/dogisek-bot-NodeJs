@@ -770,7 +770,7 @@ if (message.content.startsWith(prefix + 'queue')) {
   if(cmd === `${prefix}load`){
 	  let msg1 = message.channel.send("L");//.then(message => {
 		  
-	          await msg1.dit("L O");
+	          await msg1.edit("L O");
           //}.then(message => {
 	          await msg1.edit("L O A");
          // }.then(message => {
