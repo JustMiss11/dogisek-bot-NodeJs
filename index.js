@@ -451,7 +451,7 @@ bot.on("message", async message => {
 		     
 		     var embed = new Discord.RichEmbed()
 		     .setAuthor(user.username)
-		     .setDescription(`Tvé ocenění: \nPočet: ${oceneni? `${oceneni}` : '0'} \n Ocenění za: **${reason ? `${reason}` : '** Žádná ocenění'}`);
+		     .setDescription(`Tvé ocenění: \nPočet: ${oceneni? `${oceneni}` : '0'} \n Ocenění za: ${reason ? `${reason}` : '** Žádná ocenění**'}`);
 		     message.channel.send(embed)
 		     return;
 	     }
@@ -781,7 +781,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  let wUser = message.guild.member(message.mentions.users.first());
 	  if(!wUser) return message.channel.send("Prosím zadej člověka kterého chceš ocenit.");
 	 // if(wUser.id == message.author.id) return message.channel.send("Nemůžeš si sám předat ocenení.");
-	  let reason = args.join(" ").slice(0);
+	  let reason = args.join(" ").slice(22);
 	  db.add(`oceneni_${wUser.id}`, 1);
 	  db.push(`reason_${wUser.id}`, reason);
 	  if(!reason) return message.channel.send("Zadej ocenění.");
