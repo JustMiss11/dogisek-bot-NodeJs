@@ -771,7 +771,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 
 //function get_msg_id(message) {
  //   id = message.id;
-}
+
 bot.on("messageReactionAdd", (message) => {
     if(message.emoji.name == "🗑") {
         message.delete();
