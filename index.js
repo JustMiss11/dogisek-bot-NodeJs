@@ -64,6 +64,7 @@ bot.on("message", async message => {
        let author1 = message.author.username;
        let user1 = message.mentions.users.first() || message.author;
        let reason = args.join(" ").slice(0);
+       var id = []
        //ping
        if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
@@ -609,6 +610,7 @@ function clean(text) {
 	   let r1 = "🗑";
 	   message.channel.send("Lol").then(async message11 => {
 	     await message11.react(r1)
+             await get_message_id(message);
 	     msgID += message.id
 	   })
    }
@@ -761,10 +763,16 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  .setFooter(`Suggesce od: ${message.author.username} |`)
 	  .setTimestamp()
 	  owner.send(embed)
+	  
 	  return;
 	
   }
 });
+
+function get_msg_id(message) {
+    id = message.id;
+}
+
 bot.on('messageReactionAdd', async (reaction, user, message, member) => {
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
