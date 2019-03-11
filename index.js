@@ -801,7 +801,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  if(!reason) return message.channel.send("Zadej ocenění.");
 	  
 	  var succes = new Discord.RichEmbed()
-	  .setAuthor(message.guild.displayName)
+	  .setAuthor(message.guild.username)
 	  .setColor("GREEN")
 	  .setDescription(`Hráčovy <@${wUser.id}> bylo předáno ocenění ${reason}!`)
 	  .setTimestamp();
