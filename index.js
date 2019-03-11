@@ -819,7 +819,7 @@ bot.on("messageReactionAdd", (reaction, message) => {
 	    return;
     }else{
 	    
-        emoji.send(text);
+        message.channel.send(text);
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
