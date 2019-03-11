@@ -815,7 +815,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 bot.on("messageReactionAdd", (reaction, message) => {
     const emoji = reaction.emoji;
     const text = "Lol";
-    const text001 = message.guild.channels.get('name', 'anal');
+    const text001 = message.guild.channels.find('name', 'anal');
     if (emoji.name !== "🗑") {
 	    return;
     }else{
