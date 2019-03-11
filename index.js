@@ -814,11 +814,12 @@ if (message.content.startsWith(prefix + 'queue')) {
 
 bot.on("messageReactionAdd", (reaction, message) => {
     const emoji = reaction.emoji;
+    const text = "Lol";
     if (emoji.name !== "🗑") {
 	    return;
     }else{
 	    
-        emoji.send("No U! xd");
+        emoji.send(text);
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
