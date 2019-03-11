@@ -812,7 +812,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 //function get_msg_id(message) {
  //   id = message.id;
 
-bot.on("messageReactionAdd", (message, emoji) => {
+bot.on("messageReactionAdd", (message) => {
     if (emoji.name !== "🗑") {
 	    return;
     }else{
