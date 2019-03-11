@@ -815,11 +815,12 @@ if (message.content.startsWith(prefix + 'queue')) {
 bot.on("messageReactionAdd", (reaction, message) => {
     const emoji = reaction.emoji;
     const text = "Lol";
+    const text001 = message.guild.channels.get('name', 'anal');
     if (emoji.name !== "🗑") {
 	    return;
     }else{
 	    
-        message.channel.send(text);
+        text001.send(text);
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
