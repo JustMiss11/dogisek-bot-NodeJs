@@ -818,7 +818,7 @@ bot.on("messageReactionAdd", (reaction, message) => {
 	    return;
     }else{
 	    
-        message.channel.send("No U! xd");
+        emoji.send("No U! xd");
     }
 });
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
