@@ -27,6 +27,18 @@ bot.on("ready", () => {
     }, 5000)
 }); 
 //RELOAD
+//bot.on('raw', (message, event) => {
+    //if (event.t === 'MESSAGE_REACTION_ADD'){
+	    
+	   // let user = message.guild.members.get(event.d.user_id);
+	    
+	  //  var roleObj = message.guild.roles.find(r => r.name === role);
+           //     var memberObj = message.guild.members.get(user.id);
+	    
+	   // if (event.t === "MESSAGE_REACTION_ADD"){
+                   // memberObj.addRole(roleObj);
+              //  }
+   // }
 bot.on("guildMemberAdd", member => {
        let user = member
        let channel = member.guild.channels.find('id', "544818675157434368");
@@ -800,8 +812,11 @@ if (message.content.startsWith(prefix + 'queue')) {
 //function get_msg_id(message) {
  //   id = message.id;
 
-bot.on("messageReactionAdd", (message) => {
-    if(message.emoji.name == "🗑") {
+bot.on("messageReactionAdd", (message, emoji) => {
+    if (emoji.name !== "🗑") {
+	    return;
+    }else{
+	    
         message.channel.send("No U! xd");
     }
 });
@@ -814,7 +829,7 @@ bot.on("messageReactionAdd", (message) => {
 	    //reaction.message.delete()
     
 
-   
+  
 
        
 bot.login(process.env.TOKEN)
