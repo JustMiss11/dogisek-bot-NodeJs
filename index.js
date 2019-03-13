@@ -41,7 +41,7 @@ bot.on("ready", () => {
    // }
 bot.on("guildMemberAdd", member => {
        let user = member
-       let channel = member.guild.channels.find('id', "#〔👋〕log");
+       let channel = member.guild.channels.find('name', "〔👋〕log");
        let avatar = member.user.avatarURL;
        
        var embed = new Discord.RichEmbed()
