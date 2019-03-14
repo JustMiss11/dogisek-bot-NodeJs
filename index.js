@@ -112,7 +112,7 @@ bot.on("message", async message => {
               .addField("invite", "Dá Invite na bota")
               .addField("log", "Pošle novej update.")
               .setTimestamp()
-              .addField("😅 Fun (1)", "`meme`")
+              .addField("😅 Fun (1)", "`meme`, `say`")
               .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
               .addField("🙂 General (6)", "`report`, `user`, `server`, `cat`, `dog`, `data`")
 	      .addField("🔞NSFW (5)", "`boobs`, `anal`, `4k`, `hentai`, `ass`")
@@ -348,7 +348,7 @@ bot.on("message", async message => {
                      "color": 0x700606,
                      
               }});
-              let reason1 = args.join(" ").slice(22);
+              let reason1 = args.join(" ").slice(1);
               if(!reason1) return message.channel.send({embed:{
                    "author":{
                             "name": "Syntax error"
@@ -376,7 +376,7 @@ bot.on("message", async message => {
               .setColor("RED")
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
-              await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
+              await message.guild.member(user).kick(reason).catch(err => console.error(err)); 
               await logs.send(embed)
               message.channel.send(":white_check_mark: ||** Úspěšně vyhozen " + user + " za " + reason1);
              
