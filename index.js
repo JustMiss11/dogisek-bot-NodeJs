@@ -294,6 +294,7 @@ bot.on("message", async message => {
        };
        //ban
        if(cmd === `${prefix}ban`){
+	       let reasonn = args.join(" ").slice(1);
 	       let user1 = message.guild.member(message.mentions.users.first())
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
               if(!user1) return message.channel.send({embed:{
@@ -304,7 +305,7 @@ bot.on("message", async message => {
                      "color": 0x700606,
                      
               }});
-              if(!reason) return message.channel.send({embed:{
+              if(!reasonn) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
                      },
@@ -331,7 +332,7 @@ bot.on("message", async message => {
               .setColor("RED")
               .setTimestamp();
               let logs = message.guild.channels.find('name', "logs")
-              await message.guild.member(user).ban(reason1).catch(err => console.error(err)); 
+              await message.guild.member(user1).ban(reasonn).catch(err => console.error(err)); 
               await logs.send(embed)
               message.channel.send(":white_check_mark: ||** Úspěšně zabanován " + user + "za " + reason1);
               
