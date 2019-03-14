@@ -294,6 +294,7 @@ bot.on("message", async message => {
        };
        //ban
        if(cmd === `${prefix}ban`){
+	       let user1 = message.mentions.users.first()
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
               if(!user1) return message.channel.send({embed:{
                      "author":{
@@ -337,8 +338,9 @@ bot.on("message", async message => {
        }//.catch(err => console.error(err));
        //KICK
        if(cmd === `${prefix}kick`){
-              if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
-              if(!user1) return message.channel.send({embed:{
+	       let user = message.mentions.users.first();
+              if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Nemáš pravomoc ");
+              if(!user) return message.channel.send({embed:{
                      "author":{
                             "name": "Syntax error"
                      },
@@ -355,7 +357,7 @@ bot.on("message", async message => {
                      "color": 0x700606,
                      
               }});
-              if(user1.hasPermissions("KICK_MEMBERS")) return message.channel.send({embed:{
+              if(user.hasPermissions("KICK_MEMBERS")) return message.channel.send({embed:{
                      "author":{
                             "name": "Error"
                      },
@@ -806,6 +808,12 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  .setDescription(`Hráčovy <@${wUser.id}> bylo předáno ocenění ${reason}!`)
 	  .setTimestamp();
 	  message.channel.send(succes)
+  }
+  if(cmd === `${prefix}say`){
+	  let mesage = args.join(" ").slice(22);
+	  
+	  if(!mesage) return message.reply(":x: | ** Nějakou zpeávu by to raky chtělo..**");
+	  message.channel.send(mesage)
   }
 });
 
