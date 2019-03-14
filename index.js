@@ -810,7 +810,7 @@ if (message.content.startsWith(prefix + 'queue')) {
 	  message.channel.send(succes)
   }
   if(cmd === `${prefix}say`){
-	  let mesage = args.join(" ").slice(22);
+	  let mesage = args.join(" ").slice(0);
 	  
 	  if(!mesage) return message.reply(":x: | ** Nějakou zpeávu by to raky chtělo..**");
 	  message.channel.send(mesage)
