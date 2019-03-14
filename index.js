@@ -363,7 +363,7 @@ bot.on("message", async message => {
                      },
                      "description": "Nemohu tohodle uživatele kicknout. \nUživatel má pravomoc: KICK_MEMBERS.",
                      "color": 0x700606,
-                     you
+                    
               }});
             //  if(!message.author.hasPermissions("BAN_MEMBERS")) return message.channel.send("Nemáš pravomoc.");
               
