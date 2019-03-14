@@ -278,7 +278,7 @@ bot.on("message", async message => {
      //   .setFooter(`Log od: ${author1}`)
       //  .setTimeStamp()
       //  .setColor('GREEN');
-        let logC = message.guild.channels.find('id', "551906091160567813");
+        let logC = message.guild.channels.find('name', "ds-core-updates");
         logC.send({embed:{
                "author":{
                       "name": message.guild.name
