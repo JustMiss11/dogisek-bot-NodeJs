@@ -294,7 +294,7 @@ bot.on("message", async message => {
        };
        //ban
        if(cmd === `${prefix}ban`){
-	       let user1 = message.mentions.users.first()
+	       let user1 = message.guild.member(message.mentions.users.first())
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do pal!");
               if(!user1) return message.channel.send({embed:{
                      "author":{
@@ -338,7 +338,7 @@ bot.on("message", async message => {
        }//.catch(err => console.error(err));
        //KICK
        if(cmd === `${prefix}kick`){
-	       let user = message.mentions.users.first();
+	       let user = message.guild.member(message.mentions.users.first());
               if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Nemáš pravomoc ");
               if(!user) return message.channel.send({embed:{
                      "author":{
