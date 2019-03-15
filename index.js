@@ -47,7 +47,7 @@ bot.on("guildMemberAdd", member => {
        var embed = new Discord.RichEmbed()
        .setAuthor("Welcome!", avatar)
        .setColor("GREEN")
-       .setDescription(`Vítej **${user}** to G A L A X Y > v2! Přečti si <#547438566075138052> a neporušuj je! Jasný?`)
+       .setDescription(`Vítej **${user}** na DarkShade! Přečti si <#554197244648357889> a neporušuj je! Jasný?`)
        .setThumbnail(avatar);
        channel.send(embed)
 })
@@ -60,7 +60,7 @@ bot.on("guildMemberRemove", member => {
        var embed = new Discord.RichEmbed()
        .setAuthor("Papa!", avatar)
        .setColor("RED")
-        .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět.||`)
+        .setDescription(`Budeš nám chybět **${user}**. ||Ne dělám si prdel nebudeš nám chybět. #kappa||`)
        .setThumbnail(avatar);
        channel.send(embed)
 })
