@@ -111,9 +111,10 @@ bot.on("message", async message => {
        }
        //help
        if(cmd === `${prefix}help`){
+	       
 	      message.channel.send("Beru si Help knížku.").then(m => {
-		     
-                     m.edit(message.channel.send({embed:{
+		     let mesA = message.author.username;
+                     await m.edit(message.channel.send({embed:{
 			     "author": {
 				     "name": `${message.guild.name}`,
 				     "icon_url": message.guild.iconURL
@@ -141,6 +142,10 @@ bot.on("message", async message => {
 			                           "name": "🔞 NSFW (5)",
 			                           "value": "`boobs`, `anal`, `4k`, `hentai`, `ass`"
 		                                 },
+				     {
+					     "name": "Požadováno od:",
+					     "value": mesA
+				     },
 			     ],
                              "footer": {
                                "text": "©DarkShade Core 2019"
