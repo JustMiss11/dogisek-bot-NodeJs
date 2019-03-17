@@ -825,7 +825,8 @@ if (message.content.startsWith(prefix + 'queue')) {
 bot.on("messageReactionAdd", (messageReaction, user) => {
        if (messageReaction.emoji.name == "wastebasket") {
     messageReaction.message.delete();
-  })
+  });
+})
        
        // => { if(m.emoji.identifier === "🗑") m.message.delete(); })
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
