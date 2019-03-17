@@ -39,6 +39,13 @@ bot.on("ready", () => {
                    // memberObj.addRole(roleObj);
               //  }
    // }
+
+bot.on("messageReactionAdd", (messageReaction, user) => {
+       if (messageReaction.emoji.name == "wastebasket") {
+    messageReaction.message.delete();
+  };
+})
+
 bot.on("guildMemberAdd", member => {
        let user = member
        let channel = member.guild.channels.find('name', "〔👋〕log");
@@ -822,11 +829,7 @@ if (message.content.startsWith(prefix + 'queue')) {
  //   id = message.id;
 
 
-bot.on("messageReactionAdd", (messageReaction, user) => {
-       if (messageReaction.emoji.name == "wastebasket") {
-    messageReaction.message.delete();
-  };
-})
+
        
        // => { if(m.emoji.identifier === "🗑") m.message.delete(); })
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
