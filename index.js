@@ -132,7 +132,7 @@ bot.on("message", async message => {
                                },
 						 {
 			                           "name": "🔨 Moderation (4)",
-			                           "value": "`warn`, `ban`, `kick, `suspend`"
+			                           "value": "`warn`, `ban`, `kick`, `suspend`"
 		                                 },
 						 {
 			                           "name": "🙂 General (6)",
@@ -842,7 +842,7 @@ if (message.content.startsWith(prefix + 'queue')) {
   if(cmd === `${prefix}say`){
 	  let mesage = args.join(" ").slice(0);
 	  
-	  if(!mesage) return message.reply(":x: | ** Nějakou zpeávu by to raky chtělo..**");
+	  if(!mesage) return message.reply(":x: | ** Nějakou zprávu by to taky chtělo..**");
 	  message.channel.send(mesage)
   }
 });
