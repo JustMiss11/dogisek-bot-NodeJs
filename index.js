@@ -112,7 +112,7 @@ bot.on("message", async message => {
        //help
        if(cmd === `${prefix}help`){
 	       
-	      message.channel.send("Beru si Help knížku.").then(m => {
+	      message.channel.send("Beru si Help knížku.").then((async, m) => {
 		     let mesA = message.author.username;
                      await m.edit(message.channel.send({embed:{
 			     "author": {
