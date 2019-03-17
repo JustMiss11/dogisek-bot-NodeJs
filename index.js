@@ -28,7 +28,7 @@ bot.on("ready", () => {
 }); 
 //RELOAD AGAIN
 //bot.on('raw', (message, event) => {
-    //if (event.t === 'MESSAGE_REACTION_ADD'){
+    //if (event.t === 'MESSAGE_REACTION_ADD'){ RELOOOOOAAAADDD
 	    
 	   // let user = message.guild.members.get(event.d.user_id);
 	    
