@@ -122,7 +122,7 @@ bot.on("message", async message => {
 			     "fields": [
 			       {
 			         "name": "Pro developera (2)",
-			         "value": "`invite`, `log`
+			         "value": "`invite`, `log`"
 		               },
                                {
 						  "name": "😅 Fun (2)",
