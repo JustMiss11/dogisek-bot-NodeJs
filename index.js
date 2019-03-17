@@ -26,7 +26,7 @@ bot.on("ready", () => {
         bot.user.setStatus("idle"); //online, idle, dnd
     }, 5000)
 }); 
-//RELOAD
+//RELOAD AGAIN
 //bot.on('raw', (message, event) => {
     //if (event.t === 'MESSAGE_REACTION_ADD'){
 	    
