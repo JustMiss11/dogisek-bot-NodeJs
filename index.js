@@ -112,9 +112,9 @@ bot.on("message", async message => {
        //help
        if(cmd === `${prefix}help`){
 	       
-	      message.channel.send("Beru si Help knížku.").then(async m => {
+	      //message.channel.send("Beru si Help knížku.").then(async m => {
 		     let mesA = message.author.username;
-                     await m.edit(message.channel.send({embed:{
+                     message.channel.send({embed:{
 			     "author": {
 				     "name": `${message.guild.name}`,
 				     "icon_url": message.guild.iconURL
@@ -150,8 +150,8 @@ bot.on("message", async message => {
                              "footer": {
                                "text": "©DarkShade Core 2019"
                              }
-		     }}))
-              });
+		     }})
+              
                      
                   //   if(!reaction1) return message.channel.send("Pokusíme se to opravit :/");
                   //   });
