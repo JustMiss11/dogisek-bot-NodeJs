@@ -145,12 +145,12 @@ bot.on("message", async message => {
                              "footer": {
                                "text": "©DarkShade Core 2019"
                              }
-		     }})
-			
+		     }}))
+              });
                      
                   //   if(!reaction1) return message.channel.send("Pokusíme se to opravit :/");
                   //   });
-              return;
+        return;
        }
        //report
        if(cmd === `${prefix}report`){
