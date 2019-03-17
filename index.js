@@ -822,7 +822,7 @@ if (message.content.startsWith(prefix + 'queue')) {
  //   id = message.id;
 
 
-bot.on("messageReactionAdd", m => { if(m.emoji.identifier === ":wastebasket:") m.message.delete(); })
+bot.on("messageReactionAdd", m => { if(m.emoji.identifier === "🗑") m.message.delete(); })
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
           // message.delete()
