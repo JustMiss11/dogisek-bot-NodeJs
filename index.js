@@ -111,28 +111,44 @@ bot.on("message", async message => {
        }
        //help
        if(cmd === `${prefix}help`){
-              var embed = new Discord.RichEmbed()
-              .setAuthor(`${message.guild.name}`, message.guild.iconURL)
-              .setColor("GREEN")
-              .setDescription("Pokud budete spamovat/zneužívat nějaký z těhto příkazů tak dostanete warn; warn, ban, kick, report")
-              .addField("Pro Developera", "Tyto příkazy jsou jen pro Developera!", true)
-              .addField("invite", "Dá Invite na bota")
-              .addField("log", "Pošle novej update.")
-              .setTimestamp()
-              .addField("😅 Fun (1)", "`meme`, `say`")
-              .addField("🔨 Moderation (4)", "`warn`, `ban`, `kick`, `suspend`")
-              .addField("🙂 General (6)", "`report`, `user`, `server`, `cat`, `dog`, `data`")
-	      .addField("🔞NSFW (5)", "`boobs`, `anal`, `4k`, `hentai`, `ass`")
-              .addField("Pomohlo ti to?", ":white_check_mark: ANO \n:x: NE")
-              .setFooter("Dogisek Bot © 2019");
-              message.channel.send(embed).then(async msg =>{
-              let reaction1 = "❌";
-                     let reaction2 = "✅";
-                     await msg.react(reaction1);
-                     await msg.react(reaction2);
+	      message.channel.send("Beru si Help knížku.").then(m => {
+		     
+                     m.edit(message.channel.send({embed:{
+			     "author": {
+				     "name": `${message.guild.name}`,
+				     "icon_url": message.guild.iconURL
+			     },
+			     "description": "Pokud budete spamovat/zneužívat příkazy: `warn, ban, kick, report` tak budete varováni!"
+			     "fields": [
+			       {
+			         "name": "Pro developera (2)",
+			         "value": "`invite`, `log`
+		               },
+                               {
+						  "name": "😅 Fun (2)",
+						  "value": "`meme`, `say`"
+                               },
+						 {
+			                           "name": "🔨 Moderation (4)",
+			                           "value": "`warn`, `ban`, `kick, `suspend`"
+		                                 },
+						 {
+			                           "name": "🙂 General (6)",
+			                           "value": "`report`, `user`, `server`, `cat`, `dog`, `data`"
+		                                 },
+						 {
+			                           "name": "🔞 NSFW (5)",
+			                           "value": "`boobs`, `anal`, `4k`, `hentai`, `ass`"
+		                                 },
+			     ],
+                             "footer": {
+                               "text": "©DarkShade Core 2019"
+                             }
+		     }})
+			
                      
-                     if(!reaction1) return message.channel.send("Pokusíme se to opravit :/");
-                     });
+                  //   if(!reaction1) return message.channel.send("Pokusíme se to opravit :/");
+                  //   });
               return;
        }
        //report
