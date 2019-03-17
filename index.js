@@ -118,7 +118,8 @@ bot.on("message", async message => {
 				     "name": `${message.guild.name}`,
 				     "icon_url": message.guild.iconURL
 			     },
-			     "description": "Pokud budete spamovat/zneužívat příkazy: `warn, ban, kick, report` tak budete varováni!"
+			     "description": "Pokud budete spamovat/zneužívat příkazy: `warn, ban, kick, report` tak budete varováni!",
+			     "color": 0x4286f4,
 			     "fields": [
 			       {
 			         "name": "Pro developera (2)",
