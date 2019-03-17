@@ -821,17 +821,8 @@ if (message.content.startsWith(prefix + 'queue')) {
 //function get_msg_id(message) {
  //   id = message.id;
 
-bot.on("messageReactionAdd", (reaction, message) => {
-    const emoji = reaction.emoji;
-    const text = "Lol";
-    const text001 = message.guild.channels.find('name', 'anal');
-    if (emoji.name !== "🗑") {
-	    return;
-    }else{
-	    
-        text001.send(text);
-    }
-});
+
+bot.on("messageReactionAdd", m => { if(m.emoji.identifier === ":wastebasket:") m.message.delete(); })
 	//(reaction.emoji.name === "🗑" && reaction.message.id === msgID){
         //   reaction.message.delete()
           // message.delete()
