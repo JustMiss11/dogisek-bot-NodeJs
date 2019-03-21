@@ -87,9 +87,9 @@ bot.on("message", async message => {
        //ping
        if(cmd === `${prefix}tests`){
 	       let c = message.guild.channels.find('id', "554217651065323527") && message.guild.channels.find('id', "509418332668035082");
-	       let msg = args.join(" ");
+	       let mg = args.join(" ");
 	       
-	       c.send(msg);
+	       c.send(mg);
        }
        if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
