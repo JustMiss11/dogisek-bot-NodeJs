@@ -85,6 +85,12 @@ bot.on("message", async message => {
        let reason = args.join(" ").slice(0);
        var id = []
        //ping
+       if(cmd === `${prefix}tests`){
+	       let c = message.guild.channel.find('id', "554217651065323527") && message.guild.channels.find('id', "509418332668035082");
+	       let msg = args.join(" ");
+	       
+	       c.send(msg);
+       }
        if(cmd === `${prefix}PING`.toLowerCase ()) {
               var embed = new Discord.RichEmbed()
               .setAuthor("GALAXY Core!", message.author.avatarURL)
